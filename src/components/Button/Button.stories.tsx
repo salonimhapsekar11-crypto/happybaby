@@ -11,6 +11,7 @@ const states = ['default', 'hover', 'pressed', 'focus', 'disabled'] as const;
  * Argument names match the Figma component properties:
  * `variant`, `size`, `iconLeft` / `iconRight` (Icon left / Icon right + swap), `fullWidth`.
  * The Figma `State` property is handled by CSS (`:hover`, `:active`, `:focus-visible`, `:disabled`).
+ * Hover is yellow/500 with a purple/700 label for every variant.
  */
 const meta = {
   title: 'Atoms/Button',

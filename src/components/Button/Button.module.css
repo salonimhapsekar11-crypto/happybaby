@@ -2,13 +2,14 @@
  * Button. Mirrors the Figma component set "Button":
  * Variant (attention | default | live | ghost | link) x Size (sm | md) x State.
  * Only semantic tokens are used. Blue (live) is only for live states.
+ * Hover is yellow/500 with a purple/700 label for every variant (white on yellow fails contrast).
  */
 .button {
   --button-bg: transparent;
-  --button-bg-hover: var(--button-bg);
+  --button-bg-hover: var(--color-action-hover-bg);
   --button-bg-pressed: var(--button-bg);
   --button-fg: var(--color-text-primary);
-  --button-fg-hover: var(--button-fg);
+  --button-fg-hover: var(--color-action-hover-text);
   --button-fg-pressed: var(--button-fg);
 
   display: inline-flex;
@@ -44,28 +45,24 @@
 /* Variants */
 .button[data-variant='attention'] {
   --button-bg: var(--color-action-attention-bg);
-  --button-bg-hover: var(--color-action-attention-bg-hover);
   --button-bg-pressed: var(--color-action-attention-bg-pressed);
   --button-fg: var(--color-action-attention-text);
 }
 
 .button[data-variant='default'] {
   --button-bg: var(--color-action-default-bg);
-  --button-bg-hover: var(--color-action-default-bg-hover);
   --button-bg-pressed: var(--color-action-default-bg-pressed);
   --button-fg: var(--color-action-default-text);
 }
 
 .button[data-variant='live'] {
   --button-bg: var(--color-action-live-bg);
-  --button-bg-hover: var(--color-action-live-bg-hover);
   --button-bg-pressed: var(--color-action-live-bg-pressed);
   --button-fg: var(--color-action-live-text);
 }
 
 .button[data-variant='ghost'] {
   --button-bg: transparent;
-  --button-bg-hover: var(--color-surface-card-raised);
   --button-bg-pressed: var(--color-action-default-bg);
   --button-fg: var(--color-text-primary);
   --button-fg-pressed: var(--color-action-default-text);
@@ -74,7 +71,6 @@
 .button[data-variant='link'] {
   --button-bg: transparent;
   --button-fg: var(--color-text-link);
-  --button-fg-hover: var(--color-text-primary);
   --button-fg-pressed: var(--color-text-secondary);
   min-width: 0;
   padding-inline: var(--space-8);

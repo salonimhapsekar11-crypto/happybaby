@@ -211,6 +211,14 @@ export const alias = {
   "text/on-light-muted": {
     "dark": "gray/600",
     "light": "gray/600"
+  },
+  "action/hover/bg": {
+    "dark": "yellow/500",
+    "light": "yellow/500"
+  },
+  "action/hover/text": {
+    "dark": "purple/700",
+    "light": "purple/700"
   }
 } as const;
 export const spacing = {

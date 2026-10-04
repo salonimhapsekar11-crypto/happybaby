@@ -149,6 +149,8 @@
   --color-surface-light-raised: var(--primitive-purple-100);
   --color-text-on-light: var(--primitive-purple-700);
   --color-text-on-light-muted: var(--primitive-gray-600);
+  --color-action-hover-bg: var(--primitive-yellow-500);
+  --color-action-hover-text: var(--primitive-purple-700);
 }
 
 /* Light values (Figma collection "Alias Light"). */
@@ -193,6 +195,8 @@
   --color-surface-light-raised: var(--primitive-purple-100);
   --color-text-on-light: var(--primitive-purple-700);
   --color-text-on-light-muted: var(--primitive-gray-600);
+  --color-action-hover-bg: var(--primitive-yellow-500);
+  --color-action-hover-text: var(--primitive-purple-700);
 }
 
 /* Type styles. Mobile is the base; Desktop applies from 768px (Figma breakpoint md). */

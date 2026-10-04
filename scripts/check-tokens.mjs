@@ -69,9 +69,8 @@ const ratio = (a, b) => {
 };
 const val = (token, mode) => figma.primitives[figma.alias[token][mode]];
 const pairs = [];
-for (const v of ['attention', 'default', 'live']) for (const st of ['', '-hover', '-pressed']) pairs.push([`action/${v}/text`, `action/${v}/bg${st}`, 4.5, `Button ${v}${st || ' (rest)'}`]);
-pairs.push(['text/link', 'surface/page', 4.5, 'Link on page'], ['text/primary', 'text/primary'.replace('text/primary', 'surface/page'), 4.5, 'Ghost button on page'],
-  ['text/primary', 'surface/card-raised', 4.5, 'Ghost hover'], ['action/default/text', 'action/default/bg-pressed', 4.5, 'Ghost pressed'],
+for (const v of ['attention', 'default', 'live']) for (const st of ['', '-pressed']) pairs.push([`action/${v}/text`, `action/${v}/bg${st}`, 4.5, `Button ${v}${st || ' (rest)'}`]);
+pairs.push(['action/hover/text', 'action/hover/bg', 4.5, 'Hover (all variants)'], ['text/link', 'surface/page', 4.5, 'Link on page'], ['text/primary', 'surface/page', 4.5, 'Ghost button on page'], ['action/default/text', 'action/default/bg-pressed', 4.5, 'Ghost pressed'],
   ['text/secondary', 'surface/page', 4.5, 'Secondary text'], ['text/muted', 'surface/page', 4.5, 'Muted text'], ['text/muted', 'surface/card', 4.5, 'Muted text on card'],
   ['focus/ring', 'surface/page', 3, 'Focus ring (non-text)'], ['focus/ring', 'surface/card', 3, 'Focus ring on card (non-text)'], ['border/strong', 'surface/page', 3, 'Strong border (non-text)']);
 for (const mode of ['dark', 'light']) {

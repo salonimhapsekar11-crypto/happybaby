@@ -88,10 +88,12 @@ for (const theme of ['dark', 'light']) {
   const figma = JSON.parse(readFileSync(join(root, 'tokens/figma-export.json'), 'utf8'));
   const dark = (t) => rgb(figma.primitives[figma.alias[t].dark]);
   const expect = (v, st) => {
-    const sfx = st === 'hover' ? '-hover' : st === 'pressed' ? '-pressed' : '';
+    const sfx = st === 'pressed' ? '-pressed' : '';
     if (st === 'disabled') return { bg: (v === 'ghost' || v === 'link') ? 'rgba(0, 0, 0, 0)' : dark('action/disabled/bg'), fg: dark('action/disabled/text') };
-    if (v === 'ghost') return { bg: st === 'hover' ? dark('surface/card-raised') : st === 'pressed' ? dark('action/default/bg') : 'rgba(0, 0, 0, 0)', fg: st === 'pressed' ? dark('action/default/text') : dark('text/primary') };
-    if (v === 'link') return { bg: 'rgba(0, 0, 0, 0)', fg: st === 'hover' ? dark('text/primary') : st === 'pressed' ? dark('text/secondary') : dark('text/link') };
+    // Hover is yellow/500 with a purple/700 label for every variant.
+    if (st === 'hover') return { bg: dark('action/hover/bg'), fg: dark('action/hover/text') };
+    if (v === 'ghost') return { bg: st === 'pressed' ? dark('action/default/bg') : 'rgba(0, 0, 0, 0)', fg: st === 'pressed' ? dark('action/default/text') : dark('text/primary') };
+    if (v === 'link') return { bg: 'rgba(0, 0, 0, 0)', fg: st === 'pressed' ? dark('text/secondary') : dark('text/link') };
     return { bg: dark(`action/${v}/bg${sfx}`), fg: dark(`action/${v}/text`) };
   };
   const errs = [];
