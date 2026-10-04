@@ -1,0 +1,125 @@
+/*
+ * Button. Mirrors the Figma component set "Button":
+ * Variant (attention | default | live | ghost | link) x Size (sm | md) x State.
+ * Only semantic tokens are used. Blue (live) is only for live states.
+ */
+.button {
+  --button-bg: transparent;
+  --button-bg-hover: var(--button-bg);
+  --button-bg-pressed: var(--button-bg);
+  --button-fg: var(--color-text-primary);
+  --button-fg-hover: var(--button-fg);
+  --button-fg-pressed: var(--button-fg);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  margin: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--button-bg);
+  color: var(--button-fg);
+  font-family: var(--font-family);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Sizes: Sm 44px tall (Label style), Md 56px tall (Label L style). */
+.button[data-size='sm'] {
+  padding: var(--space-12) var(--space-20);
+  min-width: var(--size-button-min-sm);
+  font: var(--type-label-mobile-weight) var(--type-label-mobile-size) / var(--type-label-mobile-line) var(--font-family);
+}
+
+.button[data-size='md'] {
+  padding: var(--space-16) var(--space-24);
+  min-width: var(--size-button-min-md);
+  font: var(--type-label-l-mobile-weight) var(--type-label-l-mobile-size) / var(--type-label-l-mobile-line) var(--font-family);
+}
+
+/* Variants */
+.button[data-variant='attention'] {
+  --button-bg: var(--color-action-attention-bg);
+  --button-bg-hover: var(--color-action-attention-bg-hover);
+  --button-bg-pressed: var(--color-action-attention-bg-pressed);
+  --button-fg: var(--color-action-attention-text);
+}
+
+.button[data-variant='default'] {
+  --button-bg: var(--color-action-default-bg);
+  --button-bg-hover: var(--color-action-default-bg-hover);
+  --button-bg-pressed: var(--color-action-default-bg-pressed);
+  --button-fg: var(--color-action-default-text);
+}
+
+.button[data-variant='live'] {
+  --button-bg: var(--color-action-live-bg);
+  --button-bg-hover: var(--color-action-live-bg-hover);
+  --button-bg-pressed: var(--color-action-live-bg-pressed);
+  --button-fg: var(--color-action-live-text);
+}
+
+.button[data-variant='ghost'] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--color-surface-card-raised);
+  --button-bg-pressed: var(--color-action-default-bg);
+  --button-fg: var(--color-text-primary);
+  --button-fg-pressed: var(--color-action-default-text);
+}
+
+.button[data-variant='link'] {
+  --button-bg: transparent;
+  --button-fg: var(--color-text-link);
+  --button-fg-hover: var(--color-text-primary);
+  --button-fg-pressed: var(--color-text-secondary);
+  min-width: 0;
+  padding-inline: var(--space-8);
+  text-decoration: underline;
+}
+
+/* Interactive states. data-force-state exists only so Storybook can show them side by side. */
+.button:not(:disabled):not([aria-disabled='true']):is(:hover, [data-force-state='hover']) {
+  background: var(--button-bg-hover);
+  color: var(--button-fg-hover);
+}
+
+.button:not(:disabled):not([aria-disabled='true']):is(:active, [data-force-state='pressed']) {
+  background: var(--button-bg-pressed);
+  color: var(--button-fg-pressed);
+}
+
+/* Focus: 2px ring with a 2px offset, as in Figma. */
+.button:focus-visible,
+.button[data-force-state='focus'] {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Disabled */
+.button:disabled,
+.button[aria-disabled='true'] {
+  background: var(--color-action-disabled-bg);
+  color: var(--color-action-disabled-text);
+  cursor: not-allowed;
+}
+
+.button[data-variant='ghost']:is(:disabled, [aria-disabled='true']),
+.button[data-variant='link']:is(:disabled, [aria-disabled='true']) {
+  background: transparent;
+}
+
+/* Full width: Figma sets the instance to "Fill container". */
+.button[data-full-width='true'] {
+  display: flex;
+  width: 100%;
+}
+
+/* Icon slots are 20px in Sm and 24px in Md. */
+.icon {
+  display: inline-flex;
+  flex: none;
+}

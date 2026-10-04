@@ -1,0 +1,102 @@
+import { Meta } from '@storybook/blocks';
+import { PrimitiveScale, FoundationColors, SemanticColors, CodeBlock } from '../docs/Foundations';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Generated from the Figma variables (`Primitives`, `Alias`, `Alias Light`). Dark is the default theme and Light is prepared.
+The semantic tables below show both themes side by side. The **Theme** switch in the toolbar changes the component stories (for example Button).
+
+**Rules from the design system**
+
+1. **Blue is only for a live state** (a running timer, playing audio). Never for a generic call to action, navigation or decoration.
+2. **`purple/500` (attention) is the single primary action** in a view.
+3. Everything else that is an action or surface uses **`purple/700`**.
+4. Grays are for text. Black and white are foundations. Yellow and pink are small warm highlights.
+5. **Components use semantic tokens only**, never primitives.
+
+## Primitives
+
+### Purple
+
+<PrimitiveScale family="purple" />
+
+### Blue (live states only)
+
+<PrimitiveScale family="blue" />
+
+### Pink
+
+<PrimitiveScale family="pink" />
+
+### Yellow
+
+<PrimitiveScale family="yellow" />
+
+### Gray (cool)
+
+<PrimitiveScale family="gray" />
+
+### Foundations
+
+<FoundationColors />
+
+```css
+/* Primitives exist as CSS variables but are not used by components. */
+.example {
+  color: var(--primitive-purple-500);
+}
+```
+
+## Semantic tokens
+
+### Action
+
+<SemanticColors group="action" />
+
+```css
+.primaryButton {
+  background: var(--color-action-attention-bg);
+  color: var(--color-action-attention-text);
+}
+.primaryButton:hover {
+  background: var(--color-action-attention-bg-hover);
+}
+```
+
+### Surface
+
+<SemanticColors group="surface" />
+
+```css
+.card {
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+}
+```
+
+### Text, border and focus
+
+<SemanticColors group="text" />
+<SemanticColors group="border" />
+<SemanticColors group="focus" />
+<SemanticColors group="highlight" />
+<SemanticColors group="foundation" />
+
+```css
+.body {
+  color: var(--color-text-secondary);
+}
+.link:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+```
+
+### Using a theme
+
+```html
+<!-- Dark is the default. Set the attribute on any element to scope a theme. -->
+<html data-theme="light"> … </html>
+```

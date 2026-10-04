@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/blocks';
+import { TypeSpecimen } from '../docs/Foundations';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+One typeface: **Poppins** (self-hosted through `@fontsource/poppins`, weights 400, 500, 600, 700). Plus Jakarta Sans is not used anywhere.
+Mobile is the base; the desktop scale applies from **768 px**. Numbers in `Data` use tabular figures so timers do not jump.
+
+## Desktop
+
+<TypeSpecimen breakpoint="desktop" />
+
+## Mobile
+
+<TypeSpecimen breakpoint="mobile" />
+
+## Usage
+
+Each Figma text style is a CSS class. It switches between the mobile and desktop values by itself:
+
+```html
+<h1 class="type-h1">Schlaf ist kein Zufall</h1>
+<p class="type-body-l">Happy Baby zeigt dir, wann dein Baby bereit ist.</p>
+<span class="type-eyebrow">Schlaf-Tracker</span>
+<span class="type-data">00:30:45</span>
+```
+
+The raw values are also available as variables, for example when a component needs one property only:
+
+```css
+.title {
+  font-size: var(--type-h2-desktop-size);
+  line-height: var(--type-h2-desktop-line);
+  font-weight: var(--type-h2-desktop-weight);
+  letter-spacing: var(--type-h2-desktop-tracking);
+}
+```
+
+Tracking is stored in `em` (Figma percent / 100), so `-2%` becomes `-0.02em`.

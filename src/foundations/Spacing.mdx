@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/blocks';
+import { SpacingScale, RadiusScale, SizeScale } from '../docs/Foundations';
+
+<Meta title="Foundations/Spacing" />
+
+# Spacing, radius and size
+
+All spacing is a multiple of 4. Every gap, padding, radius and icon size in a component is one of these tokens.
+
+## Space
+
+<SpacingScale />
+
+```css
+.card {
+  padding: var(--space-24);
+  display: grid;
+  gap: var(--space-16);
+}
+```
+
+## Radius
+
+<RadiusScale />
+
+```css
+.button {
+  border-radius: var(--radius-full);
+}
+.card {
+  border-radius: var(--radius-xl);
+}
+```
+
+## Size
+
+Icons are 20 px (sm), 24 px (md, default) and 40 px (lg). Interactive elements are at least 44 px high (`--size-hit-min`).
+
+<SizeScale />
+
+```css
+.iconButton {
+  width: var(--size-hit-min);
+  height: var(--size-hit-min);
+}
+```
+
+## Layout
+
+| Breakpoint | Width | Columns | Margins |
+| --- | --- | --- | --- |
+| sm | 390 | 4 | 20 |
+| md | 768 | 8 | 32 |
+| lg | 1024 | 12 | 40 |
+| xl | 1440 | 12 | 40 (content max width 1240) |
+
+Section vertical padding is `--space-64` on mobile and `--space-96` on desktop.
