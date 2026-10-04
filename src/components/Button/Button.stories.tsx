@@ -45,7 +45,7 @@ export const AttentionIcon: Story = {
     docs: {
       description: {
         story:
-          'Primary button with the icon in a circle on the right (the "Start now" pattern). Purple/500 pill, purple/700 circle, yellow arrow. Pass `iconRight` to use another icon.',
+          'Primary button with the icon in a circle on the right (the "Start now" pattern). Purple/500 pill, purple/700 circle, white arrow. On hover the pill is yellow and the circle turns white. Pass `iconRight` to use another icon.',
       },
     },
   },

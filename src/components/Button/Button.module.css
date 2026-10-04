@@ -81,16 +81,19 @@
 
 /*
  * Attention with a circular icon on the right (the "Start now" pattern, in our colours):
- * a purple/500 pill with a purple/700 circle holding a yellow arrow. Sm is 44px tall, Md 56px.
+ * a purple/500 pill with a purple/700 circle holding a white arrow. On hover the pill turns yellow and
+ * the circle turns white with a purple/700 arrow. Sm is 44px tall, Md 56px.
  */
 .button[data-variant='attention-icon'] {
   --button-bg: var(--color-action-attention-bg);
   --button-bg-pressed: var(--color-action-attention-bg-pressed);
   --button-fg: var(--color-action-attention-text);
   --circle-bg: var(--color-action-default-bg);
-  --circle-fg: var(--color-highlight-yellow);
-  justify-content: space-between;
-  gap: var(--space-16);
+  --circle-fg: var(--color-foundation-white);
+  /* Hugs its content: label, a small gap, then the circle. No minimum width. */
+  justify-content: flex-start;
+  gap: var(--space-12);
+  min-width: 0;
 }
 
 .button[data-variant='attention-icon'][data-size='sm'] {
@@ -120,6 +123,11 @@
 .button[data-size='md'] .circle {
   width: var(--size-button-circle-md);
   height: var(--size-button-circle-md);
+}
+
+.button[data-variant='attention-icon']:not(:disabled):not([aria-disabled='true']):is(:hover, [data-force-state='hover']) .circle {
+  background: var(--color-foundation-white);
+  color: var(--color-action-hover-text);
 }
 
 .button[data-variant='attention-icon']:not(:disabled):not([aria-disabled='true']):is(:active, [data-force-state='pressed']) .circle {
