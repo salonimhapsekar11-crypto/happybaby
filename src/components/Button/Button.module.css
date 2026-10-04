@@ -70,11 +70,65 @@
 
 .button[data-variant='link'] {
   --button-bg: transparent;
+  --button-bg-hover: transparent;
   --button-fg: var(--color-text-link);
+  --button-fg-hover: var(--color-text-link-hover);
   --button-fg-pressed: var(--color-text-secondary);
   min-width: 0;
   padding-inline: var(--space-8);
   text-decoration: underline;
+}
+
+/*
+ * Attention with a circular icon on the right (the "Start now" pattern, in our colours):
+ * a purple/500 pill with a purple/700 circle holding a yellow arrow. Sm is 44px tall, Md 56px.
+ */
+.button[data-variant='attention-icon'] {
+  --button-bg: var(--color-action-attention-bg);
+  --button-bg-pressed: var(--color-action-attention-bg-pressed);
+  --button-fg: var(--color-action-attention-text);
+  --circle-bg: var(--color-action-default-bg);
+  --circle-fg: var(--color-highlight-yellow);
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.button[data-variant='attention-icon'][data-size='sm'] {
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-20);
+}
+
+.button[data-variant='attention-icon'][data-size='md'] {
+  padding: var(--space-8) var(--space-8) var(--space-8) var(--space-24);
+}
+
+.circle {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--circle-bg, transparent);
+  color: var(--circle-fg, inherit);
+  transition: background-color 120ms ease;
+}
+
+.button[data-size='sm'] .circle {
+  width: var(--size-button-circle-sm);
+  height: var(--size-button-circle-sm);
+}
+
+.button[data-size='md'] .circle {
+  width: var(--size-button-circle-md);
+  height: var(--size-button-circle-md);
+}
+
+.button[data-variant='attention-icon']:not(:disabled):not([aria-disabled='true']):is(:active, [data-force-state='pressed']) .circle {
+  background: var(--color-action-default-bg-pressed);
+}
+
+.button[data-variant='attention-icon']:is(:disabled, [aria-disabled='true']) .circle {
+  background: var(--color-action-disabled-text);
+  color: var(--color-action-disabled-bg);
 }
 
 /* Interactive states. data-force-state exists only so Storybook can show them side by side. */

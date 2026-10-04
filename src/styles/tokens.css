@@ -101,6 +101,8 @@
   --size-phone-w: 240px;
   --size-phone-h: 522px;
   --size-phone-h-crop: 340px;
+  --size-button-circle-sm: 36px;
+  --size-button-circle-md: 40px;
 
   /* Typography: mobile values, desktop overrides below */
   --font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
@@ -151,6 +153,7 @@
   --color-text-on-light-muted: var(--primitive-gray-600);
   --color-action-hover-bg: var(--primitive-yellow-500);
   --color-action-hover-text: var(--primitive-purple-700);
+  --color-text-link-hover: var(--primitive-yellow-500);
 }
 
 /* Light values (Figma collection "Alias Light"). */
@@ -197,6 +200,7 @@
   --color-text-on-light-muted: var(--primitive-gray-600);
   --color-action-hover-bg: var(--primitive-yellow-500);
   --color-action-hover-text: var(--primitive-purple-700);
+  --color-text-link-hover: var(--primitive-purple-700);
 }
 
 /* Type styles. Mobile is the base; Desktop applies from 768px (Figma breakpoint md). */

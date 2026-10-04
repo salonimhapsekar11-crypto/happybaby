@@ -45,14 +45,14 @@ It can be added later on top of the same variables if the team prefers it.
 - **Blue is only for a live state** (running timer, playing audio). Never a generic call to action.
 - **`attention` (purple/500) is the single primary action** in a view. Everything else is `default` (purple/700).
 - White text on blue fails contrast (2.75:1), so the Live button label is purple/700.
-- **Hover is yellow/500 with a purple/700 label** on every variant (`--color-action-hover-bg`, `--color-action-hover-text`), because white on yellow fails contrast.
+- **Hover is yellow/500 with a purple/700 label** (`--color-action-hover-bg`, `--color-action-hover-text`), because white on yellow fails contrast. **Link hover has no fill:** the underlined text turns yellow (`--color-text-link-hover`; purple/700 in Light).
 - Interactive targets are at least 44 px. Focus is a 2 px yellow ring with a 2 px offset.
 
 ## Figma to code property map (Button)
 
 | Figma | Code |
 | --- | --- |
-| `Variant` Attention / Default / Live / Ghost / Link | `variant` `'attention' \| 'default' \| 'live' \| 'ghost' \| 'link'` |
+| `Variant` Attention / AttentionIcon / Default / Live / Ghost / Link | `variant` `'attention' \| 'attention-icon' \| 'default' \| 'live' \| 'ghost' \| 'link'` |
 | `Size` Sm / Md | `size` `'sm' \| 'md'` |
 | `State` Default / Hover / Pressed / Focus / Disabled | CSS `:hover`, `:active`, `:focus-visible`, `disabled` |
 | `Label` | `children` |

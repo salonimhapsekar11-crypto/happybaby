@@ -219,6 +219,10 @@ export const alias = {
   "action/hover/text": {
     "dark": "purple/700",
     "light": "purple/700"
+  },
+  "text/link-hover": {
+    "dark": "yellow/500",
+    "light": "purple/700"
   }
 } as const;
 export const spacing = {
@@ -263,7 +267,9 @@ export const spacing = {
   "size/avatar-lg": 80,
   "size/phone-w": 240,
   "size/phone-h": 522,
-  "size/phone-h-crop": 340
+  "size/phone-h-crop": 340,
+  "size/button-circle-sm": 36,
+  "size/button-circle-md": 40
 } as const;
 export const typeStyles = [
   {

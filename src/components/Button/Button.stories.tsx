@@ -3,7 +3,7 @@ import { Button, type ButtonSize, type ButtonVariant } from './Button';
 import { Icon } from '../Icon/Icon';
 import docs from '../../docs/docs.module.css';
 
-const variants: ButtonVariant[] = ['attention', 'default', 'live', 'ghost', 'link'];
+const variants: ButtonVariant[] = ['attention', 'attention-icon', 'default', 'live', 'ghost', 'link'];
 const sizes: ButtonSize[] = ['sm', 'md'];
 const states = ['default', 'hover', 'pressed', 'focus', 'disabled'] as const;
 
@@ -11,7 +11,7 @@ const states = ['default', 'hover', 'pressed', 'focus', 'disabled'] as const;
  * Argument names match the Figma component properties:
  * `variant`, `size`, `iconLeft` / `iconRight` (Icon left / Icon right + swap), `fullWidth`.
  * The Figma `State` property is handled by CSS (`:hover`, `:active`, `:focus-visible`, `:disabled`).
- * Hover is yellow/500 with a purple/700 label for every variant.
+ * Hover is yellow/500 with a purple/700 label, except the Link variant: no fill, the underlined text turns yellow.
  */
 const meta = {
   title: 'Atoms/Button',
@@ -36,6 +36,18 @@ export const Attention: Story = {
   args: { variant: 'attention' },
   parameters: {
     docs: { description: { story: 'The single primary action in a view (purple/500). Use it once per screen.' } },
+  },
+};
+
+export const AttentionIcon: Story = {
+  args: { variant: 'attention-icon', children: 'Jetzt starten' },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Primary button with the icon in a circle on the right (the "Start now" pattern). Purple/500 pill, purple/700 circle, yellow arrow. Pass `iconRight` to use another icon.',
+      },
+    },
   },
 };
 
@@ -92,7 +104,7 @@ export const StateMatrix: Story = {
     controls: { disable: true },
     docs: {
       source: {
-        code: `{(['attention', 'default', 'live', 'ghost', 'link'] as const).map((variant) =>
+        code: `{(['attention', 'attention-icon', 'default', 'live', 'ghost', 'link'] as const).map((variant) =>
   (['sm', 'md'] as const).map((size) => (
     <Button variant={variant} size={size} forceState="hover">Button</Button>
     // states: forceState="hover" | "pressed" | "focus", or disabled

@@ -1,12 +1,14 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { Icon } from '../Icon/Icon';
 import styles from './Button.module.css';
 
-export type ButtonVariant = 'attention' | 'default' | 'live' | 'ghost' | 'link';
+export type ButtonVariant = 'attention' | 'attention-icon' | 'default' | 'live' | 'ghost' | 'link';
 export type ButtonSize = 'sm' | 'md';
 
 interface BaseProps {
   /**
    * attention: the single primary action in a view (purple/500).
+   * attention-icon: attention with the icon in a circle on the right (defaults to an arrow).
    * default: secondary actions (purple/700).
    * live: only for live states such as a running nap timer or playing audio (blue).
    * ghost: low emphasis. link: inline-style action.
@@ -50,7 +52,12 @@ export function Button(props: ButtonProps) {
     'data-force-state': forceState,
   };
 
-  const content = (
+  const content = variant === 'attention-icon' ? (
+    <>
+      <span>{children}</span>
+      <span className={styles.circle}>{iconRight ?? <Icon name="arrow-right" size={size === 'sm' ? 'sm' : 'md'} />}</span>
+    </>
+  ) : (
     <>
       {iconLeft ? <span className={styles.icon}>{iconLeft}</span> : null}
       <span>{children}</span>
