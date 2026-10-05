@@ -21,7 +21,7 @@ export function CodeBlock({ code, language = 'tsx' }: { code: string; language?:
           {copied ? 'Copied' : 'Copy'}
         </button>
       </div>
-      <pre className={styles.pre}>
+      <pre className={styles.pre} tabIndex={0}>
         <code>{code}</code>
       </pre>
     </div>

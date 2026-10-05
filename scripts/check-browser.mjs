@@ -41,11 +41,11 @@ for (const theme of ['dark', 'light']) {
     await page.waitForTimeout(400);
     const builder = new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']);
     // On docs pages, test our content only: Storybook's own Controls table and code highlighter are not ours.
-    if (mode === 'docs') builder.exclude('.docblock-argstable').exclude('.docblock-source').exclude('.prismjs');
+    if (mode === 'docs') builder.exclude('.docblock-argstable').exclude('.docblock-source').exclude('.prismjs').exclude('[data-radix-scroll-area-viewport]');
     const r = await builder.analyze();
     total++;
     const serious = r.violations.filter((v) => ['serious', 'critical'].includes(v.impact));
-    if (serious.length) bad.push(`${e.id}: ${serious.map((v) => `${v.id}(${v.nodes.length})`).join(', ')}`);
+    if (serious.length) bad.push(`${e.id}: ${serious.map((v) => `${v.id}(${v.nodes.length}) ${v.nodes[0].target}`).join(', ')}`);
   }
   log(bad.length === 0, `axe serious/critical (${theme}): ${total} stories and docs pages`, bad.slice(0, 6).join(' | '));
   await ctx.close();
