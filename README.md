@@ -4,6 +4,12 @@ React + TypeScript components, documented in Storybook. Design tokens are **gene
 
 Figma: file `3AAhNwvt6arydm2XE1epYy`, page **Design System**.
 
+## Live Storybook
+
+Published with GitHub Pages on every push to `main`: https://salonimhapsekar11-crypto.github.io/happybaby/
+
+One-time setup: repository **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
 ## Run it
 
 ```bash
