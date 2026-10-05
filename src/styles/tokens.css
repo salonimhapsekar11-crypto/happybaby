@@ -104,6 +104,14 @@
   --size-button-circle-sm: 36px;
   --size-button-circle-md: 40px;
   --size-glass-blur: 24px;
+  --size-step-indicator: 28px;
+  --size-step-separator: 2px;
+  --size-avatar-overlap-sm: 10px;
+  --size-avatar-overlap-md: 14px;
+  --size-card-media-desktop: 620px;
+  --size-card-media-mobile: 440px;
+  --size-hero-desktop: 1005px;
+  --size-hero-mobile: 780px;
 
   /* Typography: mobile values, desktop overrides below */
   --font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
@@ -155,6 +163,7 @@
   --color-action-hover-bg: var(--primitive-yellow-500);
   --color-action-hover-text: var(--primitive-purple-700);
   --color-text-link-hover: var(--primitive-yellow-500);
+  --color-accent-live: var(--primitive-blue-500);
 }
 
 /* Light values (Figma collection "Alias Light"). */
@@ -202,6 +211,16 @@
   --color-action-hover-bg: var(--primitive-yellow-500);
   --color-action-hover-text: var(--primitive-purple-700);
   --color-text-link-hover: var(--primitive-purple-700);
+  --color-accent-live: var(--primitive-blue-500);
+}
+
+/* Gradients and shadows: built from semantic colours so they follow the theme. */
+:root {
+  --gradient-scrim-top: linear-gradient(to bottom, color-mix(in srgb, var(--color-surface-page) 45%, transparent), color-mix(in srgb, var(--color-surface-page) 0%, transparent));
+  --gradient-scrim-left: linear-gradient(to right, color-mix(in srgb, var(--color-surface-page) 60%, transparent), color-mix(in srgb, var(--color-surface-page) 0%, transparent));
+  --gradient-scrim-bottom: linear-gradient(to bottom, color-mix(in srgb, var(--color-surface-page) 0%, transparent), color-mix(in srgb, var(--color-surface-page) 60%, transparent));
+  --gradient-section-fade: linear-gradient(to bottom, color-mix(in srgb, var(--color-surface-page) 0%, var(--color-surface-light)) 0%, color-mix(in srgb, var(--color-surface-page) 2.8%, var(--color-surface-light)) 10%, color-mix(in srgb, var(--color-surface-page) 10.4%, var(--color-surface-light)) 20%, color-mix(in srgb, var(--color-surface-page) 21.6%, var(--color-surface-light)) 30%, color-mix(in srgb, var(--color-surface-page) 35.2%, var(--color-surface-light)) 40%, color-mix(in srgb, var(--color-surface-page) 50%, var(--color-surface-light)) 50%, color-mix(in srgb, var(--color-surface-page) 64.8%, var(--color-surface-light)) 60%, color-mix(in srgb, var(--color-surface-page) 78.4%, var(--color-surface-light)) 70%, color-mix(in srgb, var(--color-surface-page) 89.6%, var(--color-surface-light)) 80%, color-mix(in srgb, var(--color-surface-page) 97.2%, var(--color-surface-light)) 90%, color-mix(in srgb, var(--color-surface-page) 100%, var(--color-surface-light)) 100%);
+  --shadow-nav-scrolled: 0px 8px 15px 0px color-mix(in srgb, var(--color-surface-page) 10%, transparent);
 }
 
 /* Type styles. Mobile is the base; Desktop applies from 768px (Figma breakpoint md). */
@@ -434,11 +453,11 @@
   --type-body-medium-desktop-line: 28px;
   --type-body-medium-desktop-weight: 400;
   --type-body-medium-desktop-tracking: 0em;
-  --type-body-small-mobile-size: 12px;
+  --type-body-small-mobile-size: 14px;
   --type-body-small-mobile-line: 20px;
   --type-body-small-mobile-weight: 400;
   --type-body-small-mobile-tracking: 0em;
-  --type-body-small-tablet-size: 12px;
+  --type-body-small-tablet-size: 14px;
   --type-body-small-tablet-line: 20px;
   --type-body-small-tablet-weight: 400;
   --type-body-small-tablet-tracking: 0em;
@@ -470,15 +489,15 @@
   --type-button-medium-desktop-line: 20px;
   --type-button-medium-desktop-weight: 600;
   --type-button-medium-desktop-tracking: 0em;
-  --type-button-small-mobile-size: 12px;
-  --type-button-small-mobile-line: 16px;
+  --type-button-small-mobile-size: 14px;
+  --type-button-small-mobile-line: 20px;
   --type-button-small-mobile-weight: 500;
   --type-button-small-mobile-tracking: 0.02em;
-  --type-button-small-tablet-size: 12px;
-  --type-button-small-tablet-line: 16px;
+  --type-button-small-tablet-size: 14px;
+  --type-button-small-tablet-line: 20px;
   --type-button-small-tablet-weight: 500;
   --type-button-small-tablet-tracking: 0.02em;
-  --type-button-small-desktop-size: 16px;
+  --type-button-small-desktop-size: 14px;
   --type-button-small-desktop-line: 20px;
   --type-button-small-desktop-weight: 500;
   --type-button-small-desktop-tracking: 0.02em;

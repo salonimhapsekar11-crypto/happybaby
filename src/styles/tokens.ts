@@ -223,6 +223,10 @@ export const alias = {
   "text/link-hover": {
     "dark": "yellow/500",
     "light": "purple/700"
+  },
+  "accent/live": {
+    "dark": "blue/500",
+    "light": "blue/500"
   }
 } as const;
 export const spacing = {
@@ -270,7 +274,51 @@ export const spacing = {
   "size/phone-h-crop": 340,
   "size/button-circle-sm": 36,
   "size/button-circle-md": 40,
-  "size/glass-blur": 24
+  "size/glass-blur": 24,
+  "size/step-indicator": 28,
+  "size/step-separator": 2,
+  "size/avatar-overlap-sm": 10,
+  "size/avatar-overlap-md": 14,
+  "size/card-media-desktop": 620,
+  "size/card-media-mobile": 440,
+  "size/hero-desktop": 1005,
+  "size/hero-mobile": 780
+} as const;
+export const gradients = {
+  "scrim-top": {
+    "direction": "to bottom",
+    "from": "surface/page",
+    "a0": 0.45,
+    "a1": 0
+  },
+  "scrim-left": {
+    "direction": "to right",
+    "from": "surface/page",
+    "a0": 0.6,
+    "a1": 0
+  },
+  "scrim-bottom": {
+    "direction": "to bottom",
+    "from": "surface/page",
+    "a0": 0,
+    "a1": 0.6
+  },
+  "section-fade": {
+    "direction": "to bottom",
+    "from": "surface/light",
+    "to": "surface/page",
+    "steps": 10
+  }
+} as const;
+export const shadows = {
+  "nav-scrolled": {
+    "x": 0,
+    "y": 8,
+    "blur": 15,
+    "spread": 0,
+    "color": "surface/page",
+    "alpha": 0.1
+  }
 } as const;
 export const typeStyles = [
   {
@@ -484,7 +532,7 @@ export const typeStyles = [
     "name": "Mobile/Body/Small",
     "family": "Poppins",
     "style": "Regular",
-    "size": 12,
+    "size": 14,
     "lh": 20,
     "ls": 0,
     "upper": false
@@ -511,8 +559,8 @@ export const typeStyles = [
     "name": "Mobile/Button/Small",
     "family": "Poppins",
     "style": "Medium",
-    "size": 12,
-    "lh": 16,
+    "size": 14,
+    "lh": 20,
     "ls": 2,
     "upper": false
   },
@@ -619,7 +667,7 @@ export const typeStyles = [
     "name": "Tablet/Body/Small",
     "family": "Poppins",
     "style": "Regular",
-    "size": 12,
+    "size": 14,
     "lh": 20,
     "ls": 0,
     "upper": false
@@ -646,8 +694,8 @@ export const typeStyles = [
     "name": "Tablet/Button/Small",
     "family": "Poppins",
     "style": "Medium",
-    "size": 12,
-    "lh": 16,
+    "size": 14,
+    "lh": 20,
     "ls": 2,
     "upper": false
   },
@@ -889,7 +937,7 @@ export const typeStyles = [
     "name": "Desktop/Button/Small",
     "family": "Poppins",
     "style": "Medium",
-    "size": 16,
+    "size": 14,
     "lh": 20,
     "ls": 2,
     "upper": false

@@ -60,11 +60,11 @@ Not on the Home page but in Figma, to schedule later: Sticky CTA, Cookie Banner,
 - Active and completed highlight = `blue/500`. It needs a semantic alias before code uses it.
 - Every text has a Figma text style. Product UI mock content (Maya timer panel, feeding buttons, emoji) is exempt.
 
-## Open issues found in the Figma audit
-1. Two parallel type scales exist (`H1–H3, Body, Small` and `Headline/Title/Body/Button`). Example: `Mobile/H2` 28 vs `Mobile/Headline/H4` 24. Pick one scale.
-2. `Desktop/Button/Small` is 16, the same size as Medium. `Mobile/Body/Small` is 12 but `Mobile/Small` is 14.
-3. Gradients (hero scrims, section fade, card scrim) and the nav shadow are raw colours; Figma cannot bind a variable to them. Document the stops in code as CSS custom properties.
-4. `blue/500` is bound as a primitive. Add `accent/live` to the alias collection.
-5. Sizes with no token: step indicator 28, separator 2, avatar overlap −10/−14, card height 620/440.
-6. Images (avatars, hero, cards) live in Figma only. Export WebP at 2× into `src/assets/images/`.
-7. DayStep separators and the hero/section copy are placeholders; some copy reads as claims ("250K installs", "ISO 270001") and needs sign-off.
+## Decisions (resolved from the Figma audit)
+1. **One type scale:** `Headline / Title / Body / Button` (plus Display, Eyebrow, Data, Caption, Label) is canonical. The flat `H1–H3, Body L, Body, Small, Label L` styles are legacy: kept so existing layouts do not break, marked "Legacy" in their Figma description, not used in new work.
+2. **Fixed:** `Body/Small` is 14 on mobile and tablet (16 on desktop). `Button/Small` is 14/20 on every breakpoint.
+3. **Gradients and shadow:** code-only tokens built from semantic colours with `color-mix`, so they follow the theme: `--gradient-scrim-top|left|bottom`, `--gradient-section-fade` (11 eased stops), `--shadow-nav-scrolled`. In Figma they are saved as paint styles `Gradient/*` and effect style `Shadow/nav-scrolled`. No other shadows exist in the system.
+4. **`accent/live`** added to both alias collections (blue/500). DayStep uses it.
+5. **New size tokens:** `size/step-indicator` 28, `size/step-separator` 2, `size/avatar-overlap-sm|md` 10/14 (applied as negative margin in code), `size/card-media-desktop|mobile` 620/440, `size/hero-desktop|mobile` 1005/780.
+6. **Images:** need exporting from Figma into `src/assets/images/` (open question for the design owner).
+7. **Claims:** hero stats, proof row and the reviews headline now carry bracketed placeholders until verified.
