@@ -132,11 +132,72 @@ for (const theme of ['dark', 'light']) {
   await ctx.close();
 }
 
+// ---- 4. NavBar matches Figma
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
+  const figma = JSON.parse(readFileSync(join(root, 'tokens/figma-export.json'), 'utf8'));
+  const hexToRgb = (hex) => { const n = parseInt(hex.slice(1), 16); return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`; };
+  const dark = (t) => hexToRgb(figma.primitives[figma.alias[t].dark]);
+  const measure = async (id, w) => {
+    await page.setViewportSize({ width: w, height: 900 });
+    await page.goto(`${base}/iframe.html?id=${id}&viewMode=story`, { waitUntil: 'networkidle' });
+    await page.waitForSelector('header');
+    return page.evaluate(() => {
+      const h = document.querySelector('header');
+      const cs = getComputedStyle(h);
+      const r = (el) => { if (!el) return null; const b = el.getBoundingClientRect(); return { x: Math.round(b.x), right: Math.round(b.right), w: Math.round(b.width), h: Math.round(b.height), cx: Math.round(b.x + b.width / 2) }; };
+      const center = h.querySelector('nav');
+      const cta = [...h.querySelectorAll('a')].find((a) => /Kostenlos/.test(a.textContent || ''));
+      const logo = h.querySelector('img');
+      return { bg: cs.backgroundColor, shadow: cs.boxShadow, filter: cs.backdropFilter || cs.webkitBackdropFilter || 'none', bar: r(h), logo: r(logo), logoLoaded: !!logo && logo.complete && logo.naturalWidth > 0, centerVisible: getComputedStyle(center).display !== 'none', center: r(center), cta: r(cta), vw: document.documentElement.clientWidth, sw: document.documentElement.scrollWidth };
+    });
+  };
+  const errs = [];
+  for (const w of [1440, 1024]) {
+    const t = await measure('organisms-navbar--transparent', w);
+    if (t.bg !== 'rgba(0, 0, 0, 0)') errs.push(`${w} transparent bg ${t.bg}`);
+    if (t.shadow !== 'none') errs.push(`${w} has shadow ${t.shadow}`);
+    if (!t.logoLoaded) errs.push(`${w} logo not loaded`);
+    if (t.bar.h !== 76) errs.push(`${w} bar height ${t.bar.h} != 76`);
+    if (Math.abs(t.center.cx - t.vw / 2) > 1.5) errs.push(`${w} centre group off-centre by ${t.center.cx - t.vw / 2}`);
+    if (t.logo.x > (w === 1440 ? 40 : 32) + 2) errs.push(`${w} logo not on the left (${t.logo.x})`);
+    if (t.cta.right < t.vw - (w === 1440 ? 40 : 32) - 2) errs.push(`${w} CTA not on the right (${t.cta.right})`);
+    if (t.sw > t.vw) errs.push(`${w} horizontal scroll`);
+    const p = await measure('organisms-navbar--purple', w);
+    if (p.bg !== dark('surface/card')) errs.push(`${w} purple bg ${p.bg} != ${dark('surface/card')}`);
+    const g = await measure('organisms-navbar--transparent-scrolled', w);
+    if (!/blur\(24px\)/.test(g.filter)) errs.push(`${w} glass blur missing (${g.filter})`);
+    if (g.bg === 'rgba(0, 0, 0, 0)') errs.push(`${w} glass has no fill`);
+    if (g.shadow !== 'none') errs.push(`${w} glass has shadow`);
+  }
+  const m = await measure('organisms-navbar--mobile', 390);
+  if (m.centerVisible) errs.push('390 centre group visible');
+  if (m.bar.h !== 68) errs.push(`390 bar height ${m.bar.h} != 68`);
+  if (m.sw > m.vw) errs.push('390 horizontal scroll');
+  const toggle = await page.$('button[aria-label="Menü öffnen"]');
+  if (!toggle) errs.push('390 menu button missing');
+  else {
+    const size = await toggle.boundingBox();
+    if (Math.round(size.width) !== 44) errs.push(`menu button ${size.width}px`);
+    await toggle.click();
+    const dlg = await page.$('[role=dialog]');
+    const box = dlg && (await dlg.boundingBox());
+    if (!box || Math.round(box.width) !== 390 || Math.round(box.height) < 844) errs.push(`menu panel ${JSON.stringify(box)}`);
+    await page.keyboard.press('Escape');
+    const closed = !(await page.$('[role=dialog]'));
+    const focused = await page.evaluate(() => document.activeElement && document.activeElement.getAttribute('aria-label'));
+    if (!closed || focused !== 'Menü öffnen') errs.push(`Escape: closed=${closed}, focus=${focused}`);
+  }
+  log(errs.length === 0, 'NavBar vs Figma: layout, centring, no shadow, glass, purple fill, mobile menu', errs.slice(0, 5).join(' | '));
+  await ctx.close();
+}
+
 // ---- screenshots for review
 {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const page = await ctx.newPage();
-  for (const id of ['foundations-colors--docs', 'foundations-typography--docs', 'foundations-spacing--docs', 'atoms-button--docs']) {
+  for (const id of ['foundations-colors--docs', 'foundations-typography--docs', 'foundations-spacing--docs', 'atoms-button--docs', 'organisms-navbar--docs', 'atoms-iconbutton--docs']) {
     await page.goto(`${base}/iframe.html?id=${id}&viewMode=docs`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(500);
     await page.screenshot({ path: join(root, `reports/screens/${id}.png`), fullPage: true });

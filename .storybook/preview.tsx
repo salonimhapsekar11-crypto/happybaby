@@ -11,6 +11,14 @@ import docs from '../src/docs/docs.module.css';
 const withTheme: Decorator = (Story, context) => {
   const theme = context.globals.theme === 'light' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', theme);
+  // Fullscreen stories (page-level components such as the NavBar) get no padded canvas.
+  if (context.parameters.layout === 'fullscreen') {
+    return (
+      <div style={{ background: 'var(--color-surface-page)', color: 'var(--color-text-primary)' }}>
+        <Story />
+      </div>
+    );
+  }
   return (
     <div className={docs.canvas}>
       <Story />

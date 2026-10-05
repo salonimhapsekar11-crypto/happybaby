@@ -1,0 +1,64 @@
+/*
+ * IconButton. Mirrors the Figma component set "IconButton": a 44px circle with one icon.
+ * Variant default | ghost | subtle. Hover is yellow/500 with a purple/700 icon.
+ */
+.iconButton {
+  --ib-bg: var(--color-action-default-bg);
+  --ib-bg-pressed: var(--color-action-default-bg-pressed);
+  --ib-fg: var(--color-action-default-text);
+  --ib-fg-pressed: var(--ib-fg);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--size-hit-min);
+  height: var(--size-hit-min);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--ib-bg);
+  color: var(--ib-fg);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.iconButton[data-variant='ghost'] {
+  --ib-bg: transparent;
+  --ib-bg-pressed: var(--color-action-default-bg);
+  --ib-fg: var(--color-text-primary);
+  --ib-fg-pressed: var(--color-action-default-text);
+}
+
+.iconButton[data-variant='subtle'] {
+  --ib-bg: var(--color-action-subtle-bg);
+  --ib-bg-pressed: var(--color-action-subtle-bg-pressed);
+  --ib-fg: var(--color-action-subtle-text);
+}
+
+.iconButton:not(:disabled):is(:hover, [data-force-state='hover']) {
+  background: var(--color-action-hover-bg);
+  color: var(--color-action-hover-text);
+}
+
+.iconButton:not(:disabled):is(:active, [data-force-state='pressed']) {
+  background: var(--ib-bg-pressed);
+  color: var(--ib-fg-pressed);
+}
+
+.iconButton:focus-visible,
+.iconButton[data-force-state='focus'] {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.iconButton:disabled {
+  background: var(--color-action-disabled-bg);
+  color: var(--color-action-disabled-text);
+  cursor: not-allowed;
+}
+
+.iconButton[data-variant='ghost']:disabled {
+  background: transparent;
+}

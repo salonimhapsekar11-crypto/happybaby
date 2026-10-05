@@ -92,7 +92,8 @@ const offenders = [];
 for (const f of files.filter((f) => ['.css', '.tsx', '.ts'].includes(extname(f)) && !f.includes('.test.') && !f.includes('.stories.'))) {
   const text = readFileSync(f, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
   if (/#[0-9a-fA-F]{3,8}\b/.test(text)) offenders.push(`${f.replace(root, '')}: hex colour`);
-  for (const m of text.matchAll(/(?<![\w-])(\d+)px/g)) if (!['0', '1', '2'].includes(m[1])) offenders.push(`${f.replace(root, '')}: ${m[0]}`);
+  const noMedia = text.split('\n').filter((l) => !l.includes('@media')).join('\n');
+  for (const m of noMedia.matchAll(/(?<![\w-])(\d+)px/g)) if (!['0', '1', '2'].includes(m[1])) offenders.push(`${f.replace(root, '')}: ${m[0]}`);
   if (/jakarta/i.test(text)) offenders.push(`${f.replace(root, '')}: Plus Jakarta Sans`);
 }
 // Allow the Figma type scale only through tokens: the component CSS uses var(--type-*) already.

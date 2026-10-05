@@ -1,0 +1,175 @@
+/*
+ * NavBar. Mirrors the Figma component sets "NavBar" and "NavMenu".
+ * Appearance (Figma "Style"): transparent (default) | purple. Scrolled (Figma "Scroll") adds glass.
+ * No shadows. Mobile is the base; the desktop layout applies from 768px.
+ */
+.nav {
+  --nav-bg: transparent;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-12) var(--space-20);
+  background: var(--nav-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  transition: background-color 200ms ease;
+}
+
+.nav[data-appearance='purple'] {
+  --nav-bg: var(--color-surface-card);
+}
+
+/* Glass: a translucent version of the bar colour with a background blur. */
+.nav[data-scrolled='true'] {
+  --nav-bg: color-mix(in srgb, var(--color-surface-page) 60%, transparent);
+  -webkit-backdrop-filter: blur(var(--size-glass-blur));
+  backdrop-filter: blur(var(--size-glass-blur));
+}
+
+.nav[data-scrolled='true'][data-appearance='purple'] {
+  --nav-bg: color-mix(in srgb, var(--color-surface-card) 70%, transparent);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.logo {
+  display: inline-flex;
+  /* The wordmark artwork already carries its 8px safe margin (as in the Figma Logo component). */
+  border-radius: var(--radius-sm);
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  height: var(--space-32);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.center {
+  display: none;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: var(--space-8);
+}
+
+.ctaDesktop {
+  display: none;
+}
+
+/* Text links and the language switch: Figma "Link" Standalone (44px hit area). */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--size-hit-min);
+  padding: var(--space-12) var(--space-8);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-link);
+  font: var(--type-label-mobile-weight) var(--type-label-mobile-size) / var(--type-label-mobile-line) var(--font-family);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.link:hover {
+  color: var(--color-text-link-hover);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Mobile menu (Figma "NavMenu"). Hidden on desktop. */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  padding: var(--space-12) var(--space-20);
+  background: var(--color-surface-page);
+  overflow-y: auto;
+}
+
+.menu[data-appearance='purple'] {
+  background: var(--color-surface-card);
+}
+
+.menuTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.menuActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.menuActions > :first-child {
+  align-self: stretch;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    grid-template-columns: 1fr auto 1fr;
+    padding-inline: var(--space-32);
+  }
+
+  /* The links and the language switch sit in the exact centre, inside a soft pill. */
+  .center {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb, var(--color-foundation-white) 8%, transparent);
+  }
+
+  .ctaDesktop {
+    display: inline-flex;
+  }
+
+  .menuToggle,
+  .languageMobile,
+  .menu {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .nav {
+    padding-inline: var(--space-40);
+  }
+}

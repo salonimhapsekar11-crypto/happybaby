@@ -269,7 +269,8 @@ export const spacing = {
   "size/phone-h": 522,
   "size/phone-h-crop": 340,
   "size/button-circle-sm": 36,
-  "size/button-circle-md": 40
+  "size/button-circle-md": 40,
+  "size/glass-blur": 24
 } as const;
 export const typeStyles = [
   {

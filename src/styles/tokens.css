@@ -103,6 +103,7 @@
   --size-phone-h-crop: 340px;
   --size-button-circle-sm: 36px;
   --size-button-circle-md: 40px;
+  --size-glass-blur: 24px;
 
   /* Typography: mobile values, desktop overrides below */
   --font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
