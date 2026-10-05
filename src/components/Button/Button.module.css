@@ -90,8 +90,9 @@
   --button-fg: var(--color-action-attention-text);
   --circle-bg: var(--color-action-default-bg);
   --circle-fg: var(--color-foundation-white);
-  /* Hugs its content: label, a small gap, then the circle. No minimum width. */
-  justify-content: flex-start;
+  /* Hugs its content: label, a 12px gap, then the circle. No minimum width.
+     When wider (fullWidth), the label and circle sit at opposite ends, like the Figma spacer. */
+  justify-content: space-between;
   gap: var(--space-12);
   min-width: 0;
 }
