@@ -52,7 +52,7 @@ It can be added later on top of the same variables if the team prefers it.
 
 | Figma | Code |
 | --- | --- |
-| `Variant` Attention / AttentionIcon / Default / Live / Ghost / Link | `variant` `'attention' \| 'attention-icon' \| 'default' \| 'live' \| 'ghost' \| 'link'` |
+| `Variant` Attention / RightIcon / Default / Live / Ghost / Link | `variant` `'attention' \| 'right-icon' \| 'default' \| 'live' \| 'ghost' \| 'link'` |
 | `Size` Sm / Md | `size` `'sm' \| 'md'` |
 | `State` Default / Hover / Pressed / Focus / Disabled | CSS `:hover`, `:active`, `:focus-visible`, `disabled` |
 | `Label` | `children` |

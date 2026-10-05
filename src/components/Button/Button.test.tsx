@@ -45,10 +45,10 @@ describe('Button', () => {
     expect(container.querySelectorAll('svg')).toHaveLength(2);
   });
 
-  it('attention-icon puts the icon in a circle and defaults to an arrow', () => {
-    const { container } = render(<Button variant="attention-icon">Jetzt starten</Button>);
+  it('right-icon puts the icon in a circle and defaults to an arrow', () => {
+    const { container } = render(<Button variant="right-icon">Jetzt starten</Button>);
     const el = screen.getByRole('button', { name: 'Jetzt starten' });
-    expect(el).toHaveAttribute('data-variant', 'attention-icon');
+    expect(el).toHaveAttribute('data-variant', 'right-icon');
     expect(container.querySelectorAll('svg')).toHaveLength(1);
     expect(container.querySelector('svg')!.closest('span')!.className).toMatch(/circle/);
   });

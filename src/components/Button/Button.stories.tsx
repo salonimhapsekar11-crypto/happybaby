@@ -3,7 +3,7 @@ import { Button, type ButtonSize, type ButtonVariant } from './Button';
 import { Icon } from '../Icon/Icon';
 import docs from '../../docs/docs.module.css';
 
-const variants: ButtonVariant[] = ['attention', 'attention-icon', 'default', 'live', 'ghost', 'link'];
+const variants: ButtonVariant[] = ['attention', 'right-icon', 'default', 'live', 'ghost', 'link'];
 const sizes: ButtonSize[] = ['sm', 'md'];
 const states = ['default', 'hover', 'pressed', 'focus', 'disabled'] as const;
 
@@ -39,8 +39,8 @@ export const Attention: Story = {
   },
 };
 
-export const AttentionIcon: Story = {
-  args: { variant: 'attention-icon', children: 'Jetzt starten' },
+export const RightIcon: Story = {
+  args: { variant: 'right-icon', children: 'Jetzt starten' },
   parameters: {
     docs: {
       description: {
@@ -104,7 +104,7 @@ export const StateMatrix: Story = {
     controls: { disable: true },
     docs: {
       source: {
-        code: `{(['attention', 'attention-icon', 'default', 'live', 'ghost', 'link'] as const).map((variant) =>
+        code: `{(['attention', 'right-icon', 'default', 'live', 'ghost', 'link'] as const).map((variant) =>
   (['sm', 'md'] as const).map((size) => (
     <Button variant={variant} size={size} forceState="hover">Button</Button>
     // states: forceState="hover" | "pressed" | "focus", or disabled

@@ -84,7 +84,7 @@
  * a purple/500 pill with a purple/700 circle holding a white arrow. On hover the pill turns yellow and
  * the circle turns white with a purple/700 arrow. Sm is 44px tall, Md 56px.
  */
-.button[data-variant='attention-icon'] {
+.button[data-variant='right-icon'] {
   --button-bg: var(--color-action-attention-bg);
   --button-bg-pressed: var(--color-action-attention-bg-pressed);
   --button-fg: var(--color-action-attention-text);
@@ -96,11 +96,11 @@
   min-width: 0;
 }
 
-.button[data-variant='attention-icon'][data-size='sm'] {
+.button[data-variant='right-icon'][data-size='sm'] {
   padding: var(--space-4) var(--space-4) var(--space-4) var(--space-20);
 }
 
-.button[data-variant='attention-icon'][data-size='md'] {
+.button[data-variant='right-icon'][data-size='md'] {
   padding: var(--space-8) var(--space-8) var(--space-8) var(--space-24);
 }
 
@@ -125,16 +125,16 @@
   height: var(--size-button-circle-md);
 }
 
-.button[data-variant='attention-icon']:not(:disabled):not([aria-disabled='true']):is(:hover, [data-force-state='hover']) .circle {
+.button[data-variant='right-icon']:not(:disabled):not([aria-disabled='true']):is(:hover, [data-force-state='hover']) .circle {
   background: var(--color-foundation-white);
   color: var(--color-action-hover-text);
 }
 
-.button[data-variant='attention-icon']:not(:disabled):not([aria-disabled='true']):is(:active, [data-force-state='pressed']) .circle {
+.button[data-variant='right-icon']:not(:disabled):not([aria-disabled='true']):is(:active, [data-force-state='pressed']) .circle {
   background: var(--color-action-default-bg-pressed);
 }
 
-.button[data-variant='attention-icon']:is(:disabled, [aria-disabled='true']) .circle {
+.button[data-variant='right-icon']:is(:disabled, [aria-disabled='true']) .circle {
   background: var(--color-action-disabled-text);
   color: var(--color-action-disabled-bg);
 }

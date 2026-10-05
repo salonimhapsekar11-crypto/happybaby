@@ -94,7 +94,7 @@ for (const theme of ['dark', 'light']) {
     // Hover is yellow/500 with a purple/700 label for every variant.
     if (st === 'hover' && v === 'link') return { bg: 'rgba(0, 0, 0, 0)', fg: dark('text/link-hover') };
     if (st === 'hover') return { bg: dark('action/hover/bg'), fg: dark('action/hover/text') };
-    if (v === 'attention-icon') v = 'attention';
+    if (v === 'right-icon') v = 'attention';
     if (v === 'ghost') return { bg: st === 'pressed' ? dark('action/default/bg') : 'rgba(0, 0, 0, 0)', fg: st === 'pressed' ? dark('action/default/text') : dark('text/primary') };
     if (v === 'link') return { bg: 'rgba(0, 0, 0, 0)', fg: st === 'pressed' ? dark('text/secondary') : dark('text/link') };
     return { bg: dark(`action/${v}/bg${sfx}`), fg: dark(`action/${v}/text`) };
@@ -102,7 +102,7 @@ for (const theme of ['dark', 'light']) {
   const errs = [];
   for (const b of rows) {
     if (b.h !== (b.s === 'sm' ? 44 : 56)) errs.push(`${b.v}/${b.s}/${b.state} height ${b.h}`);
-    const minW = b.v === 'link' || b.v === 'attention-icon' ? 0 : b.s === 'sm' ? 200 : 240;
+    const minW = b.v === 'link' || b.v === 'right-icon' ? 0 : b.s === 'sm' ? 200 : 240;
     if (b.w < minW) errs.push(`${b.v}/${b.s}/${b.state} width ${b.w}<${minW}`);
     if (b.font !== (b.s === 'sm' ? '16px' : '18px') || b.weight !== '600') errs.push(`${b.v}/${b.s} font ${b.font}/${b.weight}`);
     if (!b.family.includes('Poppins')) errs.push(`${b.v}/${b.s} family ${b.family}`);
@@ -110,7 +110,7 @@ for (const theme of ['dark', 'light']) {
     const ex = expect(b.v, b.state);
     if (b.bg !== ex.bg) errs.push(`${b.v}/${b.s}/${b.state} bg ${b.bg} != ${ex.bg}`);
     if (b.fg !== ex.fg) errs.push(`${b.v}/${b.s}/${b.state} fg ${b.fg} != ${ex.fg}`);
-    if (b.v === 'attention-icon') {
+    if (b.v === 'right-icon') {
       const white = rgb(figma.primitives['base/white']);
       const exC = b.state === 'disabled' ? { bg: dark('action/disabled/text'), fg: dark('action/disabled/bg') }
         : b.state === 'hover' ? { bg: white, fg: dark('action/hover/text') }
