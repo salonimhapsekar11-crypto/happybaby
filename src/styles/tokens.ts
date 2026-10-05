@@ -303,7 +303,7 @@ export const typeStyles = [
   {
     "name": "Mobile/H3",
     "family": "Poppins",
-    "style": "SemiBold",
+    "style": "Bold",
     "size": 20,
     "lh": 28,
     "ls": 0,
@@ -355,15 +355,6 @@ export const typeStyles = [
     "upper": false
   },
   {
-    "name": "Mobile/Label L",
-    "family": "Poppins",
-    "style": "SemiBold",
-    "size": 18,
-    "lh": 24,
-    "ls": 0,
-    "upper": false
-  },
-  {
     "name": "Mobile/Eyebrow",
     "family": "Poppins",
     "style": "SemiBold",
@@ -379,6 +370,285 @@ export const typeStyles = [
     "size": 32,
     "lh": 36,
     "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Label L",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 18,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Headline/H1",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 48,
+    "lh": 56,
+    "ls": -2,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Headline/H2",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 40,
+    "lh": 48,
+    "ls": -2,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Headline/H3",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 32,
+    "lh": 40,
+    "ls": -1,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Headline/H4",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 24,
+    "lh": 28,
+    "ls": -1,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Headline/H5",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 20,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Headline/H6",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 16,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Title/Large",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 24,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Title/Medium",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 20,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Title/Small",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 16,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Body/Large",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 20,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Body/Medium",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 16,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Body/Small",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 12,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Button/Large",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 16,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Button/Medium",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 16,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Mobile/Button/Small",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 12,
+    "lh": 16,
+    "ls": 2,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Headline/H1",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 60,
+    "lh": 72,
+    "ls": -2,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Headline/H2",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 48,
+    "lh": 56,
+    "ls": -2,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Headline/H3",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 36,
+    "lh": 44,
+    "ls": -1,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Headline/H4",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 32,
+    "lh": 40,
+    "ls": -1,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Headline/H5",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 24,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Headline/H6",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 20,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Title/Large",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 32,
+    "lh": 40,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Title/Medium",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 24,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Title/Small",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 20,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Body/Large",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 20,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Body/Medium",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 16,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Body/Small",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 12,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Button/Large",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 20,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Button/Medium",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 16,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Tablet/Button/Small",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 12,
+    "lh": 16,
+    "ls": 2,
     "upper": false
   },
   {
@@ -411,7 +681,7 @@ export const typeStyles = [
   {
     "name": "Desktop/H3",
     "family": "Poppins",
-    "style": "SemiBold",
+    "style": "Bold",
     "size": 24,
     "lh": 32,
     "ls": 0,
@@ -463,15 +733,6 @@ export const typeStyles = [
     "upper": false
   },
   {
-    "name": "Desktop/Label L",
-    "family": "Poppins",
-    "style": "SemiBold",
-    "size": 18,
-    "lh": 24,
-    "ls": 0,
-    "upper": false
-  },
-  {
     "name": "Desktop/Eyebrow",
     "family": "Poppins",
     "style": "SemiBold",
@@ -487,6 +748,150 @@ export const typeStyles = [
     "size": 40,
     "lh": 44,
     "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Label L",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 18,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Headline/H1",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 72,
+    "lh": 88,
+    "ls": -2,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Headline/H2",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 56,
+    "lh": 68,
+    "ls": -2,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Headline/H3",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 44,
+    "lh": 52,
+    "ls": -1,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Headline/H4",
+    "family": "Poppins",
+    "style": "Bold",
+    "size": 36,
+    "lh": 44,
+    "ls": -1,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Headline/H5",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 28,
+    "lh": 32,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Headline/H6",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 24,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Title/Large",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 36,
+    "lh": 44,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Title/Medium",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 28,
+    "lh": 32,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Title/Small",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 24,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Body/Large",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 24,
+    "lh": 32,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Body/Medium",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 20,
+    "lh": 28,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Body/Small",
+    "family": "Poppins",
+    "style": "Regular",
+    "size": 16,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Button/Large",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 20,
+    "lh": 24,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Button/Medium",
+    "family": "Poppins",
+    "style": "SemiBold",
+    "size": 16,
+    "lh": 20,
+    "ls": 0,
+    "upper": false
+  },
+  {
+    "name": "Desktop/Button/Small",
+    "family": "Poppins",
+    "style": "Medium",
+    "size": 16,
+    "lh": 20,
+    "ls": 2,
     "upper": false
   }
 ] as const;

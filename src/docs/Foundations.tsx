@@ -90,6 +90,13 @@ export function SemanticColors({ group }: { group: string }) {
   );
 }
 
+function sampleFor(role: string) {
+  if (role.startsWith('headline')) return 'Ein Tagesplan, der mitwächst';
+  if (role.startsWith('title')) return 'Live-Tracking für den Schlaf';
+  if (role.startsWith('button')) return 'Jetzt kostenlos starten';
+  return 'Starte den Timer, sobald dein Baby einschläft.';
+}
+
 export function TypeSpecimen({ breakpoint }: { breakpoint: 'desktop' | 'mobile' }) {
   const samples: Record<string, string> = {
     display: 'Gute Nacht, kleiner Schatz',
@@ -112,7 +119,7 @@ export function TypeSpecimen({ breakpoint }: { breakpoint: 'desktop' | 'mobile' 
       <table className={styles.table}>
         <tbody>
           {rows.map((s) => {
-            const role = s.name.split('/')[1].toLowerCase().replace(/\s+/g, '-');
+            const role = s.name.split('/').slice(1).join('-').toLowerCase().replace(/\s+/g, '-');
             const v = (p: string) => `var(--type-${role}-${breakpoint}-${p})`;
             return (
               <tr key={s.name}>
@@ -134,7 +141,7 @@ export function TypeSpecimen({ breakpoint }: { breakpoint: 'desktop' | 'mobile' 
                       fontVariantNumeric: role === 'data' ? 'tabular-nums' : undefined,
                     }}
                   >
-                    {samples[role]}
+                    {samples[role] ?? sampleFor(role)}
                   </p>
                 </td>
               </tr>
