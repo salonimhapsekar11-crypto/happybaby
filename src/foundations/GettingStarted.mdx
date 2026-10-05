@@ -1,0 +1,98 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+# Getting started
+
+## 1. Install and run
+
+```bash
+npm install
+npm run storybook      # this site, on http://localhost:6006
+```
+
+Requires Node 20 or later. The stack is React 18, TypeScript (strict), Vite and Storybook 8.6, with CSS Modules. There is no Tailwind: every value comes from tokens.
+
+## 2. Load the tokens and the font
+
+Import once at the root of your app (this is what Storybook's `preview.tsx` does):
+
+```ts
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import './styles/tokens.css';   // generated, do not edit
+import './styles/global.css';
+```
+
+Dark is the default theme. Switch with an attribute on the root element:
+
+```html
+<html data-theme="dark">   <!-- or "light" -->
+```
+
+## 3. Use a component
+
+```tsx
+import { Button } from './components/Button/Button';
+import { Flex } from './components/Flex/Flex';
+
+export function Example() {
+  return (
+    <Flex direction="column" gap="16">
+      <h2 className="type-headline-h4">Schlaf ist kein Zufall</h2>
+      <Button variant="right-icon" href="#">
+        Kostenlos testen
+      </Button>
+    </Flex>
+  );
+}
+```
+
+## 4. Use tokens in your own CSS
+
+```css
+.panel {
+  padding: var(--space-24);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-card);
+  color: var(--color-text-primary);
+}
+```
+
+Type is a class per Figma text style (`type-body`, `type-title-medium`, `type-eyebrow`). Each class switches from the mobile to the desktop value at 768 px by itself.
+
+## 5. From Figma to code
+
+1. Change a variable or text style in Figma.
+2. Re-export it to `tokens/figma-export.json`.
+3. Run `npm run tokens`. It regenerates `src/styles/tokens.css` and `tokens.ts`. Never edit those two files by hand.
+4. Run `npm run check:tokens`. It fails if the CSS and the Figma export disagree.
+
+## 6. Checks
+
+<table>
+<thead><tr><th>Command</th><th>What it checks</th></tr></thead>
+<tbody>
+<tr><td><code>npm run typecheck</code></td><td>TypeScript, strict</td></tr>
+<tr><td><code>npm test</code></td><td>Component tests (Vitest, Testing Library)</td></tr>
+<tr><td><code>npm run check:tokens</code></td><td>Figma ↔ code parity, WCAG AA contrast for every colour pair in both themes, no hex or pixel literals in component code</td></tr>
+<tr><td><code>npm run check:browser</code></td><td>axe on every story and docs page in both themes, no horizontal scroll from 320 to 1440 px, Button and NavBar against their Figma specs</td></tr>
+<tr><td><code>npm run check</code></td><td>All of the above</td></tr>
+</tbody>
+</table>
+
+## Writing a new component
+
+1. Name its props after the Figma component properties (`variant`, `size`, `Label` becomes `children`).
+2. Use tokens only. If a value is missing, add it in Figma first, then export.
+3. Write a story per variant, and a docs description that says where it is used.
+4. Run `npm run check` before opening a pull request.
+
+## Conventions
+
+- Headlines H3 to H6 are one weight heavier than body styles: H3 and H4 Bold, H5 and H6 SemiBold.
+- Mobile styles are base; desktop applies from 768 px.
+- Nested corners step down one radius from their parent.
+- Text over a photo always sits on a gradient.

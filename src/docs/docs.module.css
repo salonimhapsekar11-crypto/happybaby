@@ -161,3 +161,43 @@
   background: var(--color-surface-page);
   color: var(--color-text-primary);
 }
+
+.item {
+  display: grid;
+  place-items: center;
+  min-width: var(--size-hit-min);
+  min-height: var(--size-hit-min);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-md);
+  background: var(--color-action-default-bg);
+  color: var(--color-text-primary);
+  font: 600 14px/20px var(--font-family);
+}
+
+.itemAlt {
+  background: var(--color-action-live-bg);
+}
+
+.demoGrid {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.demo {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.demoFrame {
+  padding: var(--space-12);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+}
+
+.axisRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: #3a3f4b;
+  font: 500 12px/16px var(--font-family);
+}

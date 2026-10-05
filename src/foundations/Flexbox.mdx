@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/blocks';
+import { FlexDemo } from '../docs/Foundations';
+
+<Meta title="Layout/What is flexbox" />
+
+# What is flexbox?
+
+**Flexbox** is a way to lay out a row or a column of things. You give a parent `display: flex`, and its children line up along one direction, called the **main axis**. The direction across it is the **cross axis**. It is one-dimensional: for rows *and* columns at once, use CSS Grid.
+
+> If you have used Figma auto layout, you already know flexbox. They are the same idea.
+
+## Main axis and cross axis
+
+<FlexDemo title="Row" code="flex-direction: row" gap="16" />
+<FlexDemo title="Column" code="flex-direction: column" direction="column" gap="16" count={3} />
+
+In a **row** the main axis runs left to right and the cross axis runs top to bottom. In a **column** they swap.
+
+## The five things you will use every day
+
+### 1. Gap: space between children
+<FlexDemo title="gap 32" code="gap: var(--space-32)" gap="32" />
+
+### 2. justify: distribute along the main axis
+<FlexDemo title="space-between" code="justify-content: space-between" justify="between" />
+<FlexDemo title="center" code="justify-content: center" justify="center" />
+
+### 3. align: position on the cross axis
+<FlexDemo title="center" code="align-items: center" align="center" />
+<FlexDemo title="start" code="align-items: flex-start" align="start" />
+
+### 4. wrap: continue on the next line
+<FlexDemo title="wrap" code="flex-wrap: wrap" wrap gap="12" count={14} />
+
+### 5. grow: fill the leftover space
+A child with `flex: 1` takes all remaining space. This is Figma's **Fill container**. A child with no `flex` is **Hug contents**: it is as big as it needs to be.
+
+## Figma auto layout ↔ CSS
+
+<table>
+<thead><tr><th>Figma</th><th>CSS</th><th><code>Flex</code> prop</th></tr></thead>
+<tbody>
+<tr><td>Horizontal / Vertical</td><td><code>flex-direction</code></td><td><code>direction</code></td></tr>
+<tr><td>Spacing between items</td><td><code>gap</code></td><td><code>gap</code></td></tr>
+<tr><td>Padding</td><td><code>padding</code></td><td>use the token on the child</td></tr>
+<tr><td>Alignment grid</td><td><code>align-items</code>, <code>justify-content</code></td><td><code>align</code>, <code>justify</code></td></tr>
+<tr><td>Space between</td><td><code>justify-content: space-between</code></td><td><code>justify="between"</code></td></tr>
+<tr><td>Wrap</td><td><code>flex-wrap: wrap</code></td><td><code>wrap</code></td></tr>
+<tr><td>Fill container</td><td><code>flex: 1</code></td><td>on the child</td></tr>
+<tr><td>Hug contents</td><td>width: auto</td><td>default</td></tr>
+<tr><td>Fixed</td><td><code>width: 200px</code></td><td>on the child</td></tr>
+</tbody>
+</table>
+
+## When to use flex, and when to use grid
+
+- **Flex:** a nav bar, a button with an icon, a list of tags, a card's content stack. Content decides the size.
+- **Grid:** the three review cards, a photo gallery. The layout decides the size, in rows and columns.
+
+## Using it here
+
+```tsx
+import { Flex } from './components/Flex/Flex';
+
+<Flex direction="column" gap="16">
+  <h2>Titel</h2>
+  <Flex gap="12" align="center" justify="between">
+    <Avatar alt="" src={src} />
+    <span>Name</span>
+  </Flex>
+</Flex>
+```
+
+`Flex` only accepts space tokens for `gap`, so every layout stays on the 4 px grid. See **Layout / Flex** for every prop, and **Layout / Container** for the page-width wrapper.

@@ -1,0 +1,14 @@
+.row {
+  display: inline-flex;
+  gap: var(--space-4);
+}
+
+.star {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  fill: var(--color-border-strong);
+}
+
+.star[data-filled] {
+  fill: var(--color-action-hover-bg);
+}

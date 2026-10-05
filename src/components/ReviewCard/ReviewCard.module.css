@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin: 0;
+  padding: var(--space-24);
+  border: 1px solid transparent;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-card);
+  color: var(--color-text-primary);
+}
+
+.card[data-layout='outline'] {
+  border-color: var(--color-border-strong);
+  background: transparent;
+}
+
+.card[data-layout='featured'] {
+  background: var(--color-surface-card-raised);
+}
+
+.title,
+.quote,
+.source {
+  margin: 0;
+}
+
+.quote {
+  color: var(--color-text-secondary);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.source {
+  margin-block-start: auto;
+}

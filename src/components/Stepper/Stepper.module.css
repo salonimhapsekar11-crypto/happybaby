@@ -1,0 +1,110 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trigger {
+  display: flex;
+  gap: var(--space-16);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-accent-live);
+  outline-offset: 2px;
+}
+
+.rail {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: var(--size-step-indicator);
+  padding-block-end: var(--space-8);
+}
+
+.indicator {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-step-indicator);
+  height: var(--size-step-indicator);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-light-raised);
+  color: var(--color-text-on-light-muted);
+}
+
+.check {
+  width: 60%;
+}
+
+.separator {
+  flex: 1;
+  width: var(--size-step-separator);
+  border-radius: var(--radius-sm);
+  background: var(--color-border-strong);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block-end: var(--space-32);
+}
+
+.time,
+.title,
+.description {
+  margin: 0;
+}
+
+.time,
+.title {
+  color: var(--color-text-on-light-muted);
+}
+
+.description {
+  color: var(--color-text-on-light);
+}
+
+.step:last-child .content {
+  padding-block-end: 0;
+}
+
+/* Active and completed use the accent colour. */
+.step[data-state='active'] .indicator,
+.step[data-state='completed'] .indicator {
+  border-color: var(--color-accent-live);
+  background: var(--color-accent-live);
+  color: var(--color-text-inverse);
+}
+
+.step[data-state='completed'] .separator {
+  background: var(--color-accent-live);
+}
+
+.step[data-state='active'] .time,
+.step[data-state='active'] .title {
+  color: var(--color-text-on-light);
+}
+
+@media (min-width: 48em) {
+  .trigger {
+    gap: var(--space-24);
+  }
+}

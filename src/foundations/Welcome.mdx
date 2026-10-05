@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Welcome" />
+
+# Happy Baby design system
+
+The web design system behind the Happy Baby landing page. One source of truth in Figma, the same values in code, and every component documented where it is used.
+
+<table>
+<thead><tr><th>If you want to…</th><th>Go to</th></tr></thead>
+<tbody>
+<tr><td>Start using it</td><td><a href="/?path=/docs/getting-started--docs" target="_top">Getting Started</a></td></tr>
+<tr><td>See colours, type, spacing, radius, elevation</td><td><a href="/?path=/docs/foundations-colors--docs" target="_top">Foundations</a></td></tr>
+<tr><td>Understand flexbox, the Flex and Container layout components</td><td><a href="/?path=/docs/layout-what-is-flexbox--docs" target="_top">Layout</a></td></tr>
+<tr><td>Browse the building blocks</td><td><a href="/?path=/docs/atoms-button--docs" target="_top">Atoms</a> and <a href="/?path=/docs/molecules-reviewcard--docs" target="_top">Molecules</a></td></tr>
+<tr><td>See how they come together on a page</td><td><a href="/?path=/docs/use-cases-hero-banner--docs" target="_top">Use cases</a></td></tr>
+</tbody>
+</table>
+
+## How it is organised
+
+1. **Foundations:** the tokens. Colour, type, spacing, radius, elevation.
+2. **Layout:** Flex and Container, the only two things a page needs to arrange content.
+3. **Atoms:** the smallest pieces: Button, IconButton, Icon, Avatar, StarRating.
+4. **Molecules:** pieces that combine atoms: AvatarStack, TrustBar, ProofRow, ReviewCard, ImageCard, Stepper, PhoneMockup.
+5. **Use cases:** real sections of the landing page (hero, first 24 hours, how it works, reviews), each listing exactly which parts it is built from.
+
+## Principles
+
+- **Structure over looks.** Auto layout in Figma is flexbox in code. Every value is a variable in Figma and a token in code: no raw hex colours, pixel radii or spacing in components.
+- **One purple action per view.** Purple 500 is the single primary action. Blue is only for a live state, such as an active step or a running timer.
+- **Accessible by default.** WCAG AA contrast is checked for every colour pair in both themes, every story is scanned with axe, and every control has a visible focus ring.
+- **One typeface.** Poppins, nothing else.
+- **German first.** Placeholder copy is German, with brackets where a real fact still needs to be verified. No invented claims.
+- **Parity is tested.** A script compares the tokens exported from Figma with the CSS in this repo, so the two cannot drift silently.
+
+## Status
+
+<table>
+<thead><tr><th>Area</th><th>State</th></tr></thead>
+<tbody>
+<tr><td>Foundations</td><td>Colour, type (69 styles), spacing, radius, elevation</td></tr>
+<tr><td>Layout</td><td>Flex, Container</td></tr>
+<tr><td>Components</td><td>Button, IconButton, Icon, Avatar, AvatarStack, StarRating, TrustBar, ProofRow, ReviewCard, ImageCard, Stepper, PhoneMockup</td></tr>
+<tr><td>Sections</td><td>Hero, First 24 hours, How it works, Reviews</td></tr>
+<tr><td>Not yet</td><td>Join and membership section, Footer, Navigation (in progress), Page template</td></tr>
+</tbody>
+</table>
+
+Stories show placeholder text and stand-in photos where final content is not approved yet.

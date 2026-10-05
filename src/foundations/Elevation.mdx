@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/blocks';
+import { ElevationSpecimen } from '../docs/Foundations';
+
+<Meta title="Foundations/Elevation" />
+
+# Elevation: shadow and gradients
+
+The system uses **one shadow** and **four gradients**. All are built from semantic colours with `color-mix`, so they follow the theme.
+
+<ElevationSpecimen />
+
+<table>
+<thead><tr><th>Token</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td><code>--shadow-nav-scrolled</code></td><td>The navigation bar once the page scrolls. Soft: 0 8 15, 10% tint. The only shadow.</td></tr>
+<tr><td><code>--gradient-scrim-top</code></td><td>Darkens the top of a photo so a transparent nav stays readable</td></tr>
+<tr><td><code>--gradient-scrim-left</code></td><td>Keeps white headlines readable over a photo (the hero)</td></tr>
+<tr><td><code>--gradient-scrim-bottom</code></td><td>Sits under text pinned to the bottom of an image card</td></tr>
+<tr><td><code>--gradient-section-fade</code></td><td>Eased fade from the light surface into the dark one. 11 stops, so there is no visible band</td></tr>
+</tbody>
+</table>
+
+## Rules
+
+1. Depth comes from colour and surface, not from shadow. Do not add shadows to cards or buttons.
+2. Text over a photo always sits on a scrim. Never place white text on an unprotected photo.
+3. Gradients and the shadow cannot be bound to variables in Figma. They exist as Figma styles (`Gradient/*`, `Shadow/nav-scrolled`) and as these CSS tokens: keep both in step.

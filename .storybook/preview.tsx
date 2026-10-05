@@ -47,7 +47,7 @@ const preview: Preview = {
     layout: 'padded',
     backgrounds: { disable: true },
     controls: { matchers: { date: /Date$/i } },
-    options: { storySort: { order: ['Foundations', ['Colors', 'Typography', 'Spacing'], 'Atoms'] } },
+    options: { storySort: { order: ['Welcome', 'Getting Started', 'Foundations', ['Colors', 'Typography', 'Spacing', 'Radius', 'Elevation'], 'Layout', ['What is flexbox', 'Flex', 'Container'], 'Atoms', 'Molecules', 'Use cases'] } },
     viewport: {
       viewports: {
         mobile: { name: 'Mobile 390', styles: { width: '390px', height: '844px' } },

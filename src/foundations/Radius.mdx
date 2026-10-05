@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/blocks';
+import { RadiusScale } from '../docs/Foundations';
+
+<Meta title="Foundations/Radius" />
+
+# Radius
+
+Rounded corners make the brand feel soft and safe. There are seven steps, all tokens: never write a raw pixel radius.
+
+<RadiusScale />
+
+## Which one to use
+
+<table>
+<thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+<tbody>
+<tr><td><code>--radius-none</code></td><td>0</td><td>Full-bleed media and dividers</td></tr>
+<tr><td><code>--radius-sm</code></td><td>8</td><td>Small tags, focus rings, inputs inside cards</td></tr>
+<tr><td><code>--radius-md</code></td><td>12</td><td>Avatar chips, small panels</td></tr>
+<tr><td><code>--radius-lg</code></td><td>16</td><td>Cards on content pages</td></tr>
+<tr><td><code>--radius-xl</code></td><td>24</td><td>Review cards, app panels, the phone screen</td></tr>
+<tr><td><code>--radius-2xl</code></td><td>32</td><td>Image cards, the phone frame, large media</td></tr>
+<tr><td><code>--radius-full</code></td><td>999</td><td>Buttons, avatars, indicators, pills</td></tr>
+</tbody>
+</table>
+
+## Rules
+
+1. **Nested corners:** an inner element takes the next step down from its parent (a `2xl` card holds `xl` content), so the gap between curves looks even.
+2. **Clip, don't fake:** put the radius on the parent and `overflow: hidden`, so images and gradients follow the curve.
+3. **Never mix steps in one row:** all cards in a row share one radius.
+
+```css
+.card {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+```

@@ -112,6 +112,8 @@
   --size-card-media-mobile: 440px;
   --size-hero-desktop: 1005px;
   --size-hero-mobile: 780px;
+  --size-container-default: 1248px;
+  --size-container-narrow: 720px;
 
   /* Typography: mobile values, desktop overrides below */
   --font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;

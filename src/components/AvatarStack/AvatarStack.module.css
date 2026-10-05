@@ -1,0 +1,12 @@
+.stack {
+  display: inline-flex;
+  align-items: center;
+}
+
+.stack > * + * {
+  margin-inline-start: calc(var(--size-avatar-overlap-md) * -1);
+}
+
+.stack[data-size='sm'] > * + * {
+  margin-inline-start: calc(var(--size-avatar-overlap-sm) * -1);
+}

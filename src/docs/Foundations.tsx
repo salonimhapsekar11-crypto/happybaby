@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { Unstyled } from '@storybook/blocks';
 import { alias, primitives, spacing, typeStyles } from '../styles/tokens';
 import { CodeBlock } from './CodeBlock';
+import { Flex, type FlexProps } from '../components/Flex/Flex';
 import styles from './docs.module.css';
 
 const slug = (n: string) => n.replace(/\//g, '-');
@@ -218,3 +219,56 @@ export function SizeScale() {
 }
 
 export { CodeBlock };
+
+/** A live Flex example with a caption, used by the "What is flexbox" page. */
+export function FlexDemo({ title, code, count = 4, ...flex }: { title: string; code: string; count?: number } & Omit<FlexProps, 'children'>) {
+  return wrap(
+    <div className={styles.demo}>
+      <div className={styles.axisRow}>
+        <strong>{title}</strong>
+        <code className={styles.mono}>{code}</code>
+      </div>
+      <div className={styles.demoFrame}>
+        <Flex {...flex}>
+          {Array.from({ length: count }, (_, i) => (
+            <div key={i} className={`${styles.item} ${i === 1 ? styles.itemAlt : ''}`} style={i === 1 ? { padding: 'var(--space-24) var(--space-16)' } : undefined}>
+              {i + 1}
+            </div>
+          ))}
+        </Flex>
+      </div>
+    </div>
+  );
+}
+
+const gradientNames = ['scrim-top', 'scrim-left', 'scrim-bottom', 'section-fade'] as const;
+
+/** Gradient tokens drawn on a photo-like background, plus the one shadow in the system. */
+export function ElevationSpecimen() {
+  return wrap(
+    <div className={styles.panel}>
+      <div className={styles.row}>
+        {gradientNames.map((n) => (
+          <div className={styles.swatch} key={n}>
+            <div
+              style={{
+                width: 160,
+                height: 120,
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--color-border-strong)',
+                background: `var(--gradient-${n}), var(--color-surface-light)`,
+              }}
+            />
+            <code className={styles.mono}>--gradient-{n}</code>
+          </div>
+        ))}
+        <div className={styles.swatch}>
+          <div style={{ display: 'grid', placeItems: 'center', width: 160, height: 120, borderRadius: 'var(--radius-md)', background: 'var(--color-surface-light-raised)' }}>
+            <div style={{ width: 120, height: 48, borderRadius: 'var(--radius-md)', background: 'var(--color-surface-light)', boxShadow: 'var(--shadow-nav-scrolled)' }} />
+          </div>
+          <code className={styles.mono}>--shadow-nav-scrolled</code>
+        </div>
+      </div>
+    </div>
+  );
+}
