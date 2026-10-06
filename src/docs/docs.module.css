@@ -170,12 +170,18 @@
   padding: var(--space-8) var(--space-16);
   border-radius: var(--radius-md);
   background: var(--color-action-default-bg);
-  color: var(--color-text-primary);
+  color: var(--color-action-default-text);
   font: 600 14px/20px var(--font-family);
 }
 
 .itemAlt {
   background: var(--color-action-live-bg);
+  color: var(--color-action-live-text);
+}
+
+.link {
+  color: #0a4fb4;
+  text-decoration: underline;
 }
 
 .demoGrid {

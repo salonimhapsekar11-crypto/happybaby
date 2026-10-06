@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks';
+import docs from '../docs/docs.module.css';
 import { FlexDemo } from '../docs/Foundations';
 
 <Meta title="Layout/What is flexbox" />
@@ -37,6 +38,7 @@ A child with `flex: 1` takes all remaining space. This is Figma's **Fill contain
 
 ## Figma auto layout ↔ CSS
 
+<div className={docs.scroll}>
 <table>
 <thead><tr><th>Figma</th><th>CSS</th><th><code>Flex</code> prop</th></tr></thead>
 <tbody>
@@ -51,6 +53,7 @@ A child with `flex: 1` takes all remaining space. This is Figma's **Fill contain
 <tr><td>Fixed</td><td><code>width: 200px</code></td><td>on the child</td></tr>
 </tbody>
 </table>
+</div>
 
 ## When to use flex, and when to use grid
 

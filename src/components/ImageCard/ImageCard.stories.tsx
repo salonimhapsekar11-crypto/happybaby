@@ -24,6 +24,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 export const WithOverlay: Story = {
-  args: { overlay: <div style={{ padding: 'var(--space-16)', borderRadius: 'var(--radius-xl)', background: 'var(--color-action-default-bg)' }}>Maya is asleep since 03:41:45</div> },
+  args: { overlay: <div style={{ padding: 'var(--space-16)', borderRadius: 'var(--radius-xl)', background: 'var(--color-action-default-bg)', color: 'var(--color-action-default-text)' }}>Maya is asleep since 03:41:45</div> },
 };
 export const WithoutImage: Story = { args: { image: undefined } };

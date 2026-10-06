@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks';
+import docs from '../docs/docs.module.css';
 
 <Meta title="Welcome" />
 
@@ -6,16 +7,18 @@ import { Meta } from '@storybook/blocks';
 
 The web design system behind the Happy Baby landing page. One source of truth in Figma, the same values in code, and every component documented where it is used.
 
+<div className={docs.scroll}>
 <table>
 <thead><tr><th>If you want to…</th><th>Go to</th></tr></thead>
 <tbody>
-<tr><td>Start using it</td><td><a href="/?path=/docs/getting-started--docs" target="_top">Getting Started</a></td></tr>
-<tr><td>See colours, type, spacing, radius, elevation</td><td><a href="/?path=/docs/foundations-colors--docs" target="_top">Foundations</a></td></tr>
-<tr><td>Understand flexbox, the Flex and Container layout components</td><td><a href="/?path=/docs/layout-what-is-flexbox--docs" target="_top">Layout</a></td></tr>
-<tr><td>Browse the building blocks</td><td><a href="/?path=/docs/atoms-button--docs" target="_top">Atoms</a> and <a href="/?path=/docs/molecules-reviewcard--docs" target="_top">Molecules</a></td></tr>
-<tr><td>See how they come together on a page</td><td><a href="/?path=/docs/use-cases-hero-banner--docs" target="_top">Use cases</a></td></tr>
+<tr><td>Start using it</td><td><a style={{ color: '#0a4fb4', textDecoration: 'underline' }} href="/?path=/docs/getting-started--docs" target="_top">Getting Started</a></td></tr>
+<tr><td>See colours, type, spacing, radius, elevation</td><td><a style={{ color: '#0a4fb4', textDecoration: 'underline' }} href="/?path=/docs/foundations-colors--docs" target="_top">Foundations</a></td></tr>
+<tr><td>Understand flexbox, the Flex and Container layout components</td><td><a style={{ color: '#0a4fb4', textDecoration: 'underline' }} href="/?path=/docs/layout-what-is-flexbox--docs" target="_top">Layout</a></td></tr>
+<tr><td>Browse the building blocks</td><td><a style={{ color: '#0a4fb4', textDecoration: 'underline' }} href="/?path=/docs/atoms-button--docs" target="_top">Atoms</a> and <a style={{ color: '#0a4fb4', textDecoration: 'underline' }} href="/?path=/docs/molecules-reviewcard--docs" target="_top">Molecules</a></td></tr>
+<tr><td>See how they come together on a page</td><td><a style={{ color: '#0a4fb4', textDecoration: 'underline' }} href="/?path=/docs/use-cases-hero-banner--docs" target="_top">Use cases</a></td></tr>
 </tbody>
 </table>
+</div>
 
 ## How it is organised
 
@@ -36,6 +39,7 @@ The web design system behind the Happy Baby landing page. One source of truth in
 
 ## Status
 
+<div className={docs.scroll}>
 <table>
 <thead><tr><th>Area</th><th>State</th></tr></thead>
 <tbody>
@@ -46,5 +50,6 @@ The web design system behind the Happy Baby landing page. One source of truth in
 <tr><td>Not yet</td><td>Join and membership section, Footer, Navigation (in progress), Page template</td></tr>
 </tbody>
 </table>
+</div>
 
 Stories show placeholder text and stand-in photos where final content is not approved yet.

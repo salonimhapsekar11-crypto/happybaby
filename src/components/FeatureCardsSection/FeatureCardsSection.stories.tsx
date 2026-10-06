@@ -4,7 +4,7 @@ import join from '../../assets/images/join/join-image.webp';
 import hero from '../../assets/images/hero/hero-mobile.webp';
 
 const panel = (text: string) => (
-  <div style={{ padding: 'var(--space-16)', borderRadius: 'var(--radius-xl)', background: 'var(--color-action-default-bg)', color: 'var(--color-text-primary)' }}>{text}</div>
+  <div style={{ padding: 'var(--space-16)', borderRadius: 'var(--radius-xl)', background: 'var(--color-action-default-bg)', color: 'var(--color-action-default-text)' }}>{text}</div>
 );
 
 /**

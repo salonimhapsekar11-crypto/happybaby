@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks';
+import docs from '../docs/docs.module.css';
 import { ElevationSpecimen } from '../docs/Foundations';
 
 <Meta title="Foundations/Elevation" />
@@ -9,6 +10,7 @@ The system uses **one shadow** and **four gradients**. All are built from semant
 
 <ElevationSpecimen />
 
+<div className={docs.scroll}>
 <table>
 <thead><tr><th>Token</th><th>Use</th></tr></thead>
 <tbody>
@@ -19,6 +21,7 @@ The system uses **one shadow** and **four gradients**. All are built from semant
 <tr><td><code>--gradient-section-fade</code></td><td>Eased fade from the light surface into the dark one. 11 stops, so there is no visible band</td></tr>
 </tbody>
 </table>
+</div>
 
 ## Rules
 

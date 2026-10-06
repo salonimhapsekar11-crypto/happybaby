@@ -64,7 +64,7 @@ for (const theme of ['dark', 'light']) {
       // Storybook's own Controls table (.docblock-argstable) is not part of our code, so it is not measured.
       const over = await page.evaluate(() => {
         const W = document.documentElement.clientWidth;
-        const offenders = [...document.querySelectorAll('body *')].filter((el) => !el.closest('.docblock-argstable') && el.getBoundingClientRect().right > W + 1 && !el.closest('[style*="overflow"], .sb-unstyled > div'));
+        const offenders = [...document.querySelectorAll('body *')].filter((el) => !el.closest('.docblock-argstable') && el.getBoundingClientRect().right > W + 1 && !el.closest('[style*="overflow"], [class*="_scroll_"], .sb-unstyled > div'));
         return offenders.length;
       });
       if (over > 0) wide.push(`${e.id}@${w} (${over} elements)`);
