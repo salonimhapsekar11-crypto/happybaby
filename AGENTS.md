@@ -107,7 +107,7 @@ Transitions: light sections end with a `--gradient-section-fade` band into the d
 
 ## 5. Images
 
-Photos live in `src/assets/images/` (WebP). Hero photos already contain their own top shade and bottom fade. Use `<picture>` for desktop and mobile. Avatars are 96 px WebP. Product screenshots and stock photos here are stand-ins: do not present them as final.
+Photos live in `src/assets/images/` (WebP). The two How it works images already include the app UI panels, so `ImageCard` needs no `overlay` for them. Hero photos already contain their own top shade and bottom fade. Use `<picture>` for desktop and mobile. Avatars are 96 px WebP. Product screenshots and stock photos here are stand-ins: do not present them as final.
 
 ## 6. Checks (must pass)
 

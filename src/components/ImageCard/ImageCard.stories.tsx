@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ImageCard } from './ImageCard';
-import join from '../../assets/images/join/join-image.webp';
+import live from '../../assets/images/how-it-works/live-tracking.webp';
 
 /**
  * Figma component `HowItWorksCard` (properties Eyebrow, Title, Description), styled after reui `c-card-8`.
@@ -13,7 +13,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [(Story) => <div style={{ maxWidth: 600 }}><Story /></div>],
   args: {
-    image: join,
+    image: live,
     eyebrow: 'Schlaf-Tracker',
     title: 'Live Tracking',
     description: 'Log feeds, diapers and sleep in a few taps.',
