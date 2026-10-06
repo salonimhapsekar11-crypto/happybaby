@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  color: var(--color-text-primary);
+}
+
+.icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-card-raised);
+}
+
+.check {
+  width: 40%;
+}

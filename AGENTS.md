@@ -54,6 +54,8 @@ Import from `src/components/<Name>/<Name>`. Prop names mirror the Figma componen
 | `Button` | `Button` (node 27:10997) | `variant` attention, right-icon, default, live, ghost, link; `size` sm or md; `iconLeft`, `iconRight`, `fullWidth`, `href` makes it a link |
 | `IconButton` | IconButton | 44 px circle |
 | `Icon` | Icons | Lucide, `name`, `size` |
+| `Link` | `Link` (Standalone) | `href`, `iconRight`; hover turns the text yellow |
+| `Badge` | `badge` | short pill, blue |
 | `Avatar` | `.Avatar` (Size, Photo) | `src`, `alt`, `size` sm, md, lg |
 | `StarRating` | `.StarRow` | `rating` 1 to 5 |
 
@@ -63,6 +65,9 @@ Import from `src/components/<Name>/<Name>`. Prop names mirror the Figma componen
 | `AvatarStack` | AvatarStack | `avatars[{src, alt}]`, `size` |
 | `TrustBar` / `StatItem` | TrustBar | `items[{title, description}]`. Stacks on mobile |
 | `ProofRow` | ProofRow | `avatars`, `label` |
+| `CheckItem` | CheckItem | benefit with a check |
+| `RatingRow` | RatingRow | `avatars`, `rating`, `label` |
+| `PriceBlock` | PriceBlock | `price`, `previousPrice`, `period`, `badge` |
 | `ReviewCard` | ReviewCard (Layout, Avatar) | `layout`, `rating`, `title`, `quote`, `author`, `source` |
 | `ImageCard` | HowItWorksCard (node 72:7011) | `image`, `eyebrow`, `title`, `description`, `overlay` |
 | `Stepper` | DayStep (node 77:7786) | `steps[{time, title, description}]`, `activeStep`, `onStepChange` |
@@ -75,11 +80,12 @@ Import from `src/components/<Name>/<Name>`. Prop names mirror the Figma componen
 | `StepperSection` | Section / First 24 hours | headline, `Stepper`, `PhoneMockup` |
 | `FeatureCardsSection` | Section / How it works | headline, `ImageCard` × n |
 | `ReviewsSection` | Section / Reviews | headline, `ReviewCard` × n |
+| `MembershipSection` | Section / Join (dark), Home page 72:7227 | headline, body, `RatingRow`, `PriceBlock`, `CheckItem` × n, `Button`, one image, `fade` |
+| `Footer` | `Footer` (Breakpoint Desktop, Laptop, Mobile) | `logo` slot, `links`, `language`, `copyright` |
 | `NavBar` | BrandNav (69:4186) | `appearance` transparent or purple, `links`, `language`, `cta`. Passes into `Hero` through `nav` |
 
 ### Not built yet: build with the same rules, and say so
-- **Join / membership section** (Figma node 61:6426, "Components / Social Proof"): media card, `RatingRow`, headline, `PriceBlock`, `CheckItem` × n, `Button`. Needs `PriceBlock`, `CheckItem`, `RatingRow` first.
-- **Footer** (Figma `Footer`, Breakpoint Desktop, Laptop, Mobile), **side menu panel** (69:4721), **page template**.
+- **Side menu panel** (Figma 69:4721) and the **page template** (`Pages/Home`).
 
 ## 4. Section recipes (page order)
 
@@ -92,8 +98,9 @@ Reference page in Figma: desktop `72:5917`, mobile `77:7257` (page "Explorations
   <StepperSection headline="What does your first 24 hours look like?" steps={steps} screen={…} screenLabel="…" />
   <FeatureCardsSection headline="How it works" cards={cards} />
   <ReviewsSection headline="What [number] parents have achieved with Happy Baby" reviews={reviews} />
-  {/* Join section, then Footer */}
+  <MembershipSection headline="Join Happy Family" body="…" price={…} benefits={…} cta={…} image={…} />
 </main>
+<Footer logo={…} links={…} language={…} copyright="© [Jahr] [Firmenname]. Alle Rechte vorbehalten." />
 ```
 
 Transitions: light sections end with a `--gradient-section-fade` band into the dark join section. Keep roughly 160 px of space between the join content and the footer.

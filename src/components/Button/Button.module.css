@@ -182,3 +182,13 @@
   display: inline-flex;
   flex: none;
 }
+
+/* A long label wraps instead of pushing the circle out of the button. */
+.button[data-variant='right-icon'] {
+  white-space: normal;
+}
+
+.button[data-variant='right-icon'] > span:first-child {
+  min-width: 0;
+  text-align: start;
+}

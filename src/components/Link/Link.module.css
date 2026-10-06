@@ -1,0 +1,20 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: var(--size-hit-min);
+  padding-inline: var(--space-8);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-text-link-hover);
+  outline-offset: 2px;
+}
