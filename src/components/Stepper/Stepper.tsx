@@ -52,7 +52,9 @@ export function Stepper({ steps, activeStep, onStepChange }: StepperProps) {
               <span className={styles.content}>
                 <span className={`type-eyebrow ${styles.time}`}>{step.time}</span>
                 <span className={`type-title-medium ${styles.title}`}>{step.title}</span>
-                {state === 'active' && <span className={`type-body-small ${styles.description}`}>{step.description}</span>}
+                <div className={styles.descriptionWrapper} aria-hidden={state !== 'active'}>
+                  <span className={`type-body-small ${styles.description}`}>{step.description}</span>
+                </div>
               </span>
             </button>
           </li>

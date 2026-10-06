@@ -281,8 +281,8 @@ export const spacing = {
   "size/avatar-overlap-md": 14,
   "size/card-media-desktop": 620,
   "size/card-media-mobile": 440,
-  "size/hero-desktop": 1005,
-  "size/hero-mobile": 780,
+  "size/hero-desktop": 800,
+  "size/hero-mobile": 640,
   "size/container-default": 1248,
   "size/container-narrow": 720
 } as const;

@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.joinSectionWrapper {
+  position: relative;
+}
+
+.joinSectionWrapper::before {
+  content: '';
+  position: absolute;
+  inset-block-start: -160px;
+  inset-inline: 0;
+  height: 160px;
+  background: var(--gradient-section-fade);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.footerWrapper {
+  margin-top: var(--space-32);
+}
+
+@media (min-width: 48em) {
+  .footerWrapper {
+    margin-top: 160px;
+  }
+}

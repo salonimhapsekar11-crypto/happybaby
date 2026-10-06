@@ -1,7 +1,7 @@
 .section {
   position: relative;
   isolation: isolate;
-  padding-block: var(--space-64) var(--space-128);
+  padding-block: var(--space-64) var(--space-64);
   background: var(--color-surface-page);
   color: var(--color-text-primary);
 }

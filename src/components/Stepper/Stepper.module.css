@@ -53,10 +53,21 @@
 }
 
 .separator {
+  position: relative;
+  overflow: hidden;
   flex: 1;
   width: var(--size-step-separator);
   border-radius: var(--radius-sm);
   background: var(--color-border-strong);
+}
+
+.separator::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent-live);
+  transform-origin: top;
+  transform: scaleY(0);
 }
 
 .content {
@@ -78,8 +89,17 @@
   color: var(--color-text-on-light-muted);
 }
 
+.descriptionWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease;
+}
+
 .description {
+  overflow: hidden;
   color: var(--color-text-on-light);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .step:last-child .content {
@@ -92,15 +112,31 @@
   border-color: var(--color-accent-live);
   background: var(--color-accent-live);
   color: var(--color-text-inverse);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.step[data-state='completed'] .separator {
-  background: var(--color-accent-live);
+.step[data-state='active'] .separator::after {
+  transform: scaleY(1);
+  transition: transform 3.5s linear;
+}
+
+.step[data-state='completed'] .separator::after {
+  transform: scaleY(1);
+  transition: none;
 }
 
 .step[data-state='active'] .time,
 .step[data-state='active'] .title {
   color: var(--color-text-on-light);
+}
+
+.step[data-state='active'] .descriptionWrapper {
+  grid-template-rows: 1fr;
+}
+
+.step[data-state='active'] .description {
+  opacity: 1;
+  transition: opacity 0.5s ease 0.2s;
 }
 
 @media (min-width: 48em) {

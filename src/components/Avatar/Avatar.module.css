@@ -14,7 +14,7 @@
 .avatar[data-size='lg'] { width: var(--size-avatar-lg); height: var(--size-avatar-lg); }
 
 .avatar[data-ring] {
-  box-shadow: 0 0 0 2px var(--color-surface-page);
+  box-shadow: 0 0 0 2px var(--color-foundation-white);
 }
 
 .image {

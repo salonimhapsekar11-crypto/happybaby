@@ -37,7 +37,7 @@ const meta = {
   argTypes: {
     appearance: { control: 'inline-radio', options: ['transparent', 'purple'] },
     scrolled: { control: 'boolean' },
-    links: { control: 'object' },
+
     cta: { control: 'object' },
   },
 } satisfies Meta<typeof NavBar>;
@@ -78,3 +78,6 @@ export const Mobile: Story = { parameters: { viewport: { defaultViewport: 'mobil
 export const MobileMenuOpen: Story = { args: { defaultMenuOpen: true }, parameters: { viewport: { defaultViewport: 'mobile' } } };
 
 export const MobileMenuPurple: Story = { args: { defaultMenuOpen: true, appearance: 'purple' }, parameters: { viewport: { defaultViewport: 'mobile' } } };
+
+/** The side drawer menu on desktop. */
+export const DesktopMenuOpen: Story = { args: { defaultMenuOpen: true } };

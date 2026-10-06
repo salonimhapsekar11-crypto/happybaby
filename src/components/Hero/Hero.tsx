@@ -34,6 +34,7 @@ export function Hero({ headline, cta, stats, proof, image, nav }: HeroProps) {
         <img src={image.mobile} alt={image.alt} />
       </picture>
       <span className={`${styles.layer} ${styles.scrimLeft}`} aria-hidden />
+      <span className={`${styles.layer} ${styles.scrimBottom}`} aria-hidden />
       <div className={styles.nav}>{nav}</div>
       <div className={styles.body}>
         <div className={styles.content}>
@@ -43,7 +44,11 @@ export function Hero({ headline, cta, stats, proof, image, nav }: HeroProps) {
               {cta.label}
             </Button>
           </div>
-          {stats && <TrustBar items={stats} />}
+          {stats && (
+            <div className={styles.stats}>
+              <TrustBar items={stats} />
+            </div>
+          )}
         </div>
         {proof && (
           <div className={styles.proof}>

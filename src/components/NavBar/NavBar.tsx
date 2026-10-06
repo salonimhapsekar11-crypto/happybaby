@@ -21,8 +21,6 @@ export interface NavBarProps {
    * Leave it undefined to switch automatically once the page has scrolled.
    */
   scrolled?: boolean;
-  /** Links in the centre group (desktop) and in the mobile menu. */
-  links?: NavLinkItem[];
   /** Current language label, for example "DE". */
   language?: string;
   onLanguageClick?: () => void;
@@ -36,13 +34,6 @@ export interface NavBarProps {
   /** Opens the mobile menu on first render. For documentation only. */
   defaultMenuOpen?: boolean;
 }
-
-const DEFAULT_LINKS: NavLinkItem[] = [
-  { label: 'Funktionen', href: '#funktionen' },
-  { label: 'Schlaftracker', href: '#schlaftracker' },
-  { label: 'Bewertungen', href: '#bewertungen' },
-  { label: 'FAQ', href: '#faq' },
-];
 
 const SCROLL_THRESHOLD = 8;
 
@@ -61,7 +52,6 @@ function useScrolled(controlled: boolean | undefined) {
 export function NavBar({
   appearance = 'transparent',
   scrolled,
-  links = DEFAULT_LINKS,
   language = 'DE',
   onLanguageClick,
   cta = { label: 'Kostenlos testen', href: '#download' },
@@ -101,7 +91,7 @@ export function NavBar({
     <button
       type="button"
       className={[styles.link, extraClass].filter(Boolean).join(' ')}
-      aria-label={`Sprache: ${language}`}
+      aria-label={`Language: ${language}`}
       onClick={onLanguageClick}
     >
       {language}
@@ -113,18 +103,24 @@ export function NavBar({
     <>
       <header className={styles.nav} data-appearance={appearance} data-scrolled={isScrolled}>
         <div className={styles.left}>
-          <a className={styles.logo} href={logoHref} aria-label="Happy Baby, Startseite">
-            <img src={logoUrl} alt="" />
+          <span className={styles.menuToggle}>
+            <IconButton
+              ref={toggleRef}
+              variant="ghost"
+              label="Open menu"
+              aria-expanded={open}
+              aria-controls="nav-menu"
+              icon={<Icon name="menu" />}
+              onClick={() => setOpen(true)}
+            />
+          </span>
+          <a className={styles.logo} href={logoHref} aria-label="Happy Baby, Home">
+            <img src={logoUrl} alt="Happy Baby" className={styles.logoImg} />
           </a>
         </div>
 
-        <nav className={styles.center} aria-label="Hauptnavigation">
-          {links.map((l) => (
-            <a key={l.label} className={styles.link} href={l.href}>
-              {l.label}
-            </a>
-          ))}
-          {showLanguage ? languageButton() : null}
+        <nav className={styles.center} aria-label="Main navigation">
+          <img src="/Assets/aumio-logo-white.svg" alt="aumio" className={styles.logoImg} />
         </nav>
 
         <div className={styles.right}>
@@ -136,42 +132,62 @@ export function NavBar({
             </span>
           ) : null}
           {showLanguage ? languageButton(styles.languageMobile) : null}
-          <span className={styles.menuToggle}>
-            <IconButton
-              ref={toggleRef}
-              variant="ghost"
-              label="Menü öffnen"
-              aria-expanded={open}
-              aria-controls="nav-menu"
-              icon={<Icon name="menu" />}
-              onClick={() => setOpen(true)}
-            />
-          </span>
         </div>
       </header>
 
       {open ? (
-        <div id="nav-menu" className={styles.menu} data-appearance={appearance} role="dialog" aria-modal="true" aria-label="Menü">
+        <div id="nav-menu" className={styles.menu} role="dialog" aria-modal="true" aria-label="Menu">
           <div className={styles.menuTop}>
-            <a className={styles.logo} href={logoHref} aria-label="Happy Baby, Startseite">
-              <img src={logoUrl} alt="" />
-            </a>
-            <IconButton ref={closeRef} variant="ghost" label="Menü schließen" icon={<Icon name="close" />} onClick={closeMenu} />
+            <div />
+            <IconButton ref={closeRef} variant="ghost" label="Close menu" icon={<Icon name="close" />} onClick={closeMenu} />
           </div>
-          <nav className={styles.menuLinks} aria-label="Menü">
-            {links.map((l) => (
-              <a key={l.label} className={styles.link} href={l.href} onClick={() => setOpen(false)}>
-                {l.label}
-              </a>
-            ))}
-          </nav>
+          
+          <div className={styles.menuMainProducts}>
+            <a href="https://www.baby.aumio.com/en" className={styles.productItem}>
+              <div className={`${styles.productIcon} ${styles.productIcon1}`}></div>
+              <div className={styles.productText}>
+                <strong>For Babies</strong>
+                <span>Sleep tracking companion</span>
+              </div>
+              <Icon name="arrow-right" size="sm" />
+            </a>
+            <a href="https://www.kids.aumio.com/en" className={styles.productItem}>
+              <div className={`${styles.productIcon} ${styles.productIcon2}`}></div>
+              <div className={styles.productText}>
+                <strong>For Kids</strong>
+                <span>Audio sleep relaxation stories</span>
+              </div>
+              <Icon name="arrow-right" size="sm" />
+            </a>
+            <a href="https://www.ally.aumio.com/" className={styles.productItem}>
+              <div className={`${styles.productIcon} ${styles.productIcon3}`}></div>
+              <div className={styles.productText}>
+                <strong>For Families</strong>
+                <span>Kurzbeschreibung, Platzhalter</span>
+              </div>
+              <Icon name="arrow-right" size="sm" />
+            </a>
+          </div>
+
+          <div className={styles.menuDivider}></div>
+
+          <div className={styles.menuSubLinks}>
+            <div className={styles.menuSubTitle}>AUMIO</div>
+            <a href="#" className={styles.subLink}>
+              About us <Icon name="arrow-right" size="sm" />
+            </a>
+            <a href="#" className={styles.subLink}>
+              Science <Icon name="arrow-right" size="sm" />
+            </a>
+            <a href="#" className={styles.subLink}>
+              Contact <Icon name="arrow-right" size="sm" />
+            </a>
+          </div>
+
           <div className={styles.menuActions}>
-            {showCta ? (
-              <Button variant="attention" size="md" fullWidth href={cta.href}>
-                {cta.label}
-              </Button>
-            ) : null}
-            {showLanguage ? languageButton() : null}
+            <Button variant="attention" size="md" fullWidth href="#">
+              Start a 7 day free trial
+            </Button>
           </div>
         </div>
       ) : null}
