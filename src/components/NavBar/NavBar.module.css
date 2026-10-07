@@ -111,9 +111,9 @@
   z-index: 20;
   display: flex;
   flex-direction: column;
-  background: var(--color-surface-menu, var(--color-foundation-white));
+  background: rgb(245, 244, 250);
   overflow-y: auto;
-  color: var(--color-text-menu, var(--color-text-primary));
+  color: rgb(33, 25, 94);
   animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -125,9 +125,9 @@
 }
 
 .menuTop button {
-  background: var(--color-surface-menu-btn, transparent);
+  background: rgb(232, 229, 244);
   border-radius: 50%;
-  color: var(--color-text-menu, inherit);
+  color: rgb(33, 25, 94);
 }
 
 .menuMainProducts {
@@ -170,12 +170,12 @@
 
 .productText span {
   font-size: 0.875rem;
-  color: var(--color-text-menu-sub, var(--color-text-secondary));
+  color: rgb(108, 108, 130);
 }
 
 .menuDivider {
   height: var(--space-4);
-  background-color: var(--color-surface-menu-btn, var(--color-border));
+  background-color: rgb(232, 229, 244);
   margin: var(--space-16) 0;
 }
 
@@ -188,7 +188,7 @@
 .menuSubTitle {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-text-menu-sub2, var(--color-text-secondary));
+  color: rgb(74, 74, 104);
   letter-spacing: 0.05em;
   margin-bottom: var(--space-12);
   text-transform: uppercase;
@@ -200,7 +200,7 @@
   justify-content: space-between;
   padding: var(--space-12) 0;
   text-decoration: none;
-  color: var(--color-text-menu, inherit);
+  color: rgb(33, 25, 94);
   font-size: 1rem;
 }
 

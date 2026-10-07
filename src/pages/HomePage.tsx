@@ -7,6 +7,9 @@ import { MembershipSection } from '../components/MembershipSection/MembershipSec
 import { Footer } from '../components/Footer/Footer';
 import styles from './HomePage.module.css';
 
+import heroDesktop from '../assets/images/hero/hero-desktop.webp';
+import heroMobile from '../assets/images/hero/hero-mobile.webp';
+
 export function HomePage() {
   const steps = [
     { time: '08:00', title: 'First wake-up', description: 'When to expect the morning start based on the evening.' },
@@ -96,8 +99,8 @@ export function HomePage() {
           ],
         }}
         image={{
-          desktop: '/src/assets/images/hero/hero-desktop.webp',
-          mobile: '/src/assets/images/hero/hero-mobile.webp',
+          desktop: heroDesktop,
+          mobile: heroMobile,
           alt: 'Father holding sleeping baby',
         }}
         nav={
