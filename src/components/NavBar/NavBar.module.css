@@ -152,9 +152,9 @@
   flex-shrink: 0;
 }
 
-.productIcon1 { background: linear-gradient(135deg, var(--color-interactive-attention) 0%, var(--color-interactive-attention-hover) 100%); }
-.productIcon2 { background: linear-gradient(120deg, var(--color-interactive-primary) 0%, var(--color-interactive-primary-hover) 100%); }
-.productIcon3 { background: linear-gradient(120deg, var(--color-interactive-ghost-hover) 0%, var(--color-surface-card) 100%); }
+.productIcon1 { background: linear-gradient(135deg, rgb(255, 154, 158) 0%, rgb(254, 207, 239) 100%); }
+.productIcon2 { background: linear-gradient(120deg, rgb(132, 250, 176) 0%, rgb(143, 211, 244) 100%); }
+.productIcon3 { background: linear-gradient(120deg, rgb(252, 203, 144) 0%, rgb(213, 126, 235) 100%); }
 
 .productText {
   display: flex;

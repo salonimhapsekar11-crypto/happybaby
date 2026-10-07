@@ -163,7 +163,7 @@ export function NavBar({
               <div className={`${styles.productIcon} ${styles.productIcon3}`}></div>
               <div className={styles.productText}>
                 <strong>For Families</strong>
-                <span>Kurzbeschreibung, Platzhalter</span>
+                <span>Mindfulness for the whole family</span>
               </div>
               <Icon name="arrow-right" size="sm" />
             </a>
